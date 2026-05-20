@@ -143,6 +143,7 @@
     color: #1D1D1F;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 }
 

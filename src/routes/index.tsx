@@ -713,21 +713,25 @@ function MachineShowcase() {
       name: "O-Mama Point",
       desc: "Fresh meals at workplaces and campuses. Scan, pick, eat.",
       img: "/sohub-omama-v2-Cb04jp3t.png",
+      href: "https://omama.sohub.com.bd/",
     },
     {
       name: "Smart Vending",
       desc: "Snacks and drinks, 24/7. Cashless and instant.",
       img: "/sohub-snacks-CIEARMGV.png",
+      href: "https://machines.sohub.com.bd/",
     },
     {
       name: "Powerbank Station",
       desc: "Rent a charge. Return anywhere. Auto-billing.",
       img: "/sohub-power-bank-v1-Bcca8uE6.png",
+      href: "https://machines.sohub.com.bd/machines/power-bank",
     },
     {
       name: "Smart Locker",
       desc: "Secure storage with digital keys. Lock, go, return.",
       img: "/sohub-locker-v1-Dsl9zKzH.png",
+      href: "https://machines.sohub.com.bd/machines/smart-locker",
     },
   ];
 
@@ -756,24 +760,38 @@ function MachineShowcase() {
               <div className="group flex flex-col">
                 
                 {/* Pure Image - Fixed Aspect Ratio to guarantee identical sizes */}
-                <div className="relative w-full aspect-square overflow-hidden rounded-[24px] transition-transform duration-500 group-hover:-translate-y-2">
+                <a
+                  href={m.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-full aspect-square overflow-hidden rounded-[24px] transition-transform duration-500 group-hover:-translate-y-2 block"
+                >
                   <img 
                     src={m.img} 
                     alt={m.name} 
                     className="h-full w-full object-cover" 
                   />
-                </div>
+                </a>
                 
                 {/* Clean Typography Below */}
                 <div className="mt-6">
                   <h3 className="text-[20px] font-bold text-[#1D1D1F] md:text-[22px]">
-                    {m.name}
+                    <a
+                      href={m.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-emerald-500 transition-colors"
+                    >
+                      {m.name}
+                    </a>
                   </h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-[#6E6E73]">
                     {m.desc}
                   </p>
                   <a 
-                    href="#" 
+                    href={m.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-emerald-500 transition-colors hover:text-emerald-600"
                   >
                     Learn more <ArrowRight size={14} />
@@ -1973,7 +1991,9 @@ function FinalCTAFooter() {
 
               {/* Google Play Button with original colored Play Store logo */}
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.tolpar.sohub&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex w-full max-w-[240px] sm:max-w-none sm:w-auto items-center justify-center gap-3 rounded-[16px] bg-[#121212] border border-white/10 text-white px-7 py-3 text-left transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-white/20 hover:shadow-[0_12px_30px_rgba(0,198,255,0.08)]"
               >
                 <svg viewBox="0 0 24 24" className="w-5.5 h-5.5 shrink-0 transition-transform group-hover:scale-110 duration-300">
@@ -1999,10 +2019,16 @@ function FinalCTAFooter() {
               <div className="text-base font-bold tracking-[0.06em] text-white">TOLPAR</div>
               <div className="mt-2 text-[13px] text-white/40">A SOHUB Initiative</div>
               <div className="mt-5 flex gap-3">
-                {[Facebook, Instagram, Youtube].map((Icon, i) => (
+                {[
+                  { Icon: Facebook, href: "https://www.facebook.com/solutionhubtechnologies" },
+                  { Icon: Instagram, href: "https://www.instagram.com/solutionhubtechnologies/" },
+                  { Icon: Youtube, href: "https://www.youtube.com/@solutionhubtechnologysohub" }
+                ].map(({ Icon, href }, i) => (
                   <a
                     key={i}
-                    href="#"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/30 hover:text-white"
                   >
                     <Icon size={15} />
@@ -2015,10 +2041,15 @@ function FinalCTAFooter() {
                 Services
               </div>
               <ul className="mt-4 space-y-3">
-                {["O-Mama Point", "Smart Vending", "Powerbank", "Smart Locker"].map((s) => (
-                  <li key={s}>
-                    <a href="#" className="text-[13px] text-white/40 transition hover:text-white/70">
-                      {s}
+                {[
+                  { name: "O-Mama Point", href: "https://omama.sohub.com.bd/" },
+                  { name: "Smart Vending", href: "https://machines.sohub.com.bd/" },
+                  { name: "Powerbank", href: "https://machines.sohub.com.bd/machines/power-bank" },
+                  { name: "Smart Locker", href: "https://machines.sohub.com.bd/machines/smart-locker" }
+                ].map((s) => (
+                  <li key={s.name}>
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/40 transition hover:text-white/70">
+                      {s.name}
                     </a>
                   </li>
                 ))}
@@ -2029,10 +2060,15 @@ function FinalCTAFooter() {
                 Company
               </div>
               <ul className="mt-4 space-y-3">
-                {["About Us", "Contact Us", "Privacy Policy", "Terms of Service"].map((s) => (
-                  <li key={s}>
-                    <a href="#" className="text-[13px] text-white/40 transition hover:text-white/70">
-                      {s}
+                {[
+                  { name: "About Us", href: "https://sohub.com.bd/company-info" },
+                  { name: "Contact Us", href: "https://sohub.com.bd/contact" },
+                  { name: "Privacy Policy", href: "https://sohub.com.bd/tolpar/privacy-policy" },
+                  { name: "Terms of Service", href: "https://sohub.com.bd/terms-of-service" }
+                ].map((s) => (
+                  <li key={s.name}>
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/40 transition hover:text-white/70">
+                      {s.name}
                     </a>
                   </li>
                 ))}
@@ -2063,17 +2099,17 @@ function TolparLanding() {
           <TrustGrid />
         </div>
         <LifeMoving />
-        <VideoGallery />
+        {/* <VideoGallery /> */}
         <DailyCompanion />
         <Personas />
         <MachineShowcase />
-        <DailyTimeline />
+        {/* <DailyTimeline /> */}
         <HowItWorks />
-        <BeforeAfter />
+        {/* <BeforeAfter /> */}
         <Wallet />
-        <QualityGrid />
-        <Ecosystem />
-        <FoundersNote />
+        {/* <QualityGrid /> */}
+        {/* <Ecosystem /> */}
+        {/* <FoundersNote /> */}
         <FAQ />
         <FinalCTAFooter />
       </main>

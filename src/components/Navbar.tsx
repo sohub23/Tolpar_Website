@@ -20,10 +20,47 @@ export function Navbar() {
   ];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        // Scrolled state for navbar bg
+        setScrolled(window.scrollY > 20);
+
+        // Scroll spy logic
+        const sectionIds = ["#top", "#features", "#how", "#faq"];
+        let activeSection = "#top";
+        const scrollPosition = window.scrollY + 250;
+        let maxPassedTop = -1;
+
+        for (const id of sectionIds) {
+          const el = document.getElementById(id.replace("#", ""));
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY;
+            if (scrollPosition >= top && top > maxPassedTop) {
+              maxPassedTop = top;
+              activeSection = id;
+            }
+          }
+        }
+
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+          activeSection = "#faq";
+        }
+
+        setActiveTab(activeSection);
+        ticking = false;
+      });
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
