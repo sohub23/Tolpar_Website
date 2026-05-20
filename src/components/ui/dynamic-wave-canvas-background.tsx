@@ -81,7 +81,20 @@ const HeroWave = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl') || (canvas.getContext('experimental-webgl') as WebGLRenderingContext | null);
+    const gl = canvas.getContext('webgl', { 
+      alpha: false, 
+      antialias: false, 
+      depth: false, 
+      stencil: false, 
+      preserveDrawingBuffer: false 
+    }) || (canvas.getContext('experimental-webgl', {
+      alpha: false, 
+      antialias: false, 
+      depth: false, 
+      stencil: false, 
+      preserveDrawingBuffer: false
+    }) as WebGLRenderingContext | null);
+
     if (!gl) {
       console.warn('WebGL not supported, falling back to static/2D background');
       return;
@@ -91,15 +104,18 @@ const HeroWave = () => {
     if (!program) return;
 
     let animationFrameId: number;
+    let isVisible = true;
 
+    // 2x downscaling optimization to reduce pixel shader iteration count by 75%
     const handleResize = () => {
       if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const scale = 0.5;
+      canvas.width = Math.floor(window.innerWidth * scale);
+      canvas.height = Math.floor(window.innerHeight * scale);
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     handleResize();
 
     gl.useProgram(program);
@@ -128,6 +144,8 @@ const HeroWave = () => {
     const startTime = Date.now();
 
     const render = () => {
+      if (!isVisible) return;
+
       const time = (Date.now() - startTime) * 0.001;
       
       gl.uniform1f(timeLoc, time);
@@ -138,17 +156,32 @@ const HeroWave = () => {
       animationFrameId = requestAnimationFrame(render);
     };
 
+    // Intersection Observer to stop the WebGL rendering loop when canvas is out of viewport
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (isVisible && !wasVisible) {
+          render();
+        }
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(canvas);
+
+    // Initial render call
     render();
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" />;
 };
 
 export default HeroWave;

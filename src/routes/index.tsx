@@ -26,6 +26,9 @@ import {
   Sun,
   Coffee,
   Moon,
+  Wifi,
+  Globe,
+  HeartHandshake,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import HeroWave from "@/components/ui/dynamic-wave-canvas-background";
@@ -155,13 +158,13 @@ function Hero() {
           </div>
         </FadeUp>
 
-        <FadeUp delay={0.4} className="mt-20 relative w-full flex justify-center">
-          <div className="relative z-10 mx-auto w-[280px] md:w-[320px]">
+        <FadeUp delay={0.4} className="mt-12 md:mt-14 relative w-full flex justify-center">
+          <div className="relative z-10 mx-auto w-[230px] md:w-[270px]">
             {/* Phone Frame */}
-            <div className="relative rounded-[45px] border-[8px] border-gray-900 bg-gray-900 shadow-2xl shadow-emerald-500/10 overflow-hidden">
-               {/* iPhone Notch */}
-               <div className="absolute left-1/2 top-0 z-20 h-6 w-1/3 -translate-x-1/2 rounded-b-2xl bg-gray-900" />
-               <img src="/app_screen.png" alt="App Screen" className="h-auto w-full rounded-[37px] object-cover" />
+            <div className="relative rounded-[36px] border-[3.5px] border-[#1A1A1C] bg-[#1A1A1C] shadow-2xl shadow-emerald-500/10 overflow-hidden ring-1 ring-white/10">
+               {/* iPhone 16 Dynamic Island Notch */}
+               <div className="absolute left-1/2 top-1.5 z-20 h-3 w-14 -translate-x-1/2 rounded-full bg-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
+               <img src="/app_screen.png" alt="App Screen" className="h-auto w-full rounded-[31px] object-cover" />
             </div>
           </div>
         </FadeUp>
@@ -1152,80 +1155,90 @@ function BeforeAfter() {
     {
       before: "Hunt for exact change at vending machines",
       after: "Tap and pay, any machine, cashless",
-      badge: "Vending"
+      badge: "Vending",
+      icon: <Utensils size={12} className="text-amber-500" />
     },
     {
       before: "Dead phone, no charger in sight",
       after: "Powerbank station around every corner",
-      badge: "Powerbank"
+      badge: "Powerbank",
+      icon: <BatteryCharging size={12} className="text-emerald-500" />
     },
     {
       before: "Leave bags with strangers",
       after: "Smart locker, digital key in your pocket",
-      badge: "Lockers"
+      badge: "Lockers",
+      icon: <Lock size={12} className="text-purple-500" />
     },
     {
       before: "Wait in O MAMA Point queues",
       after: "Scan, grab, and go in 30 seconds",
-      badge: "O MAMA Points"
+      badge: "O MAMA Points",
+      icon: <Coffee size={12} className="text-amber-600" />
     },
   ];
 
   return (
-    <section className="bg-white px-6 py-20 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white px-6 py-16 md:py-24">
+      {/* Background radial glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-50/30 blur-[100px]" />
+      
       <div className="mx-auto max-w-5xl">
-        <FadeUp>
-          <span className="block text-center text-[12px] font-bold uppercase tracking-widest text-[#86868B] mb-3">
-            THE TRANSITION
-          </span>
-        </FadeUp>
-        <FadeUp delay={0.1}>
-          <h2 className="text-center text-[clamp(28px,4vw,44px)] font-bold tracking-tight text-[#1D1D1F]">
-            Once you try it, no going back.
-          </h2>
-        </FadeUp>
-        <FadeUp delay={0.15}>
-          <p className="mt-3 text-center text-[15px] text-[#86868B] md:text-[17px] max-w-xl mx-auto">
-            Say goodbye to old-school friction. Experience the future of instant smart services.
-          </p>
-        </FadeUp>
+        <div className="text-center">
+          <FadeUp>
+            <Overline>THE TRANSITION</Overline>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <h2 className="mt-4 text-[clamp(28px,4vw,40px)] font-extrabold tracking-tight text-slate-900 leading-tight">
+              Once you try it, <span className="text-emerald-500">no going back.</span>
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <p className="mx-auto mt-3 max-w-xl text-[14.5px] leading-relaxed text-slate-500 md:text-[16px]">
+              Say goodbye to old-school friction. Experience the future of instant smart services.
+            </p>
+          </FadeUp>
+        </div>
 
-        {/* Modern Interactive Comparison Rows */}
-        <div className="mt-16 space-y-4">
+        {/* Modern Compact Comparison Rows */}
+        <div className="mt-12 space-y-3">
           {comparisons.map((c, i) => (
             <FadeUp key={c.badge} delay={i * 0.08}>
-              <div className="group relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-0 bg-[#F5F5F7]/60 p-6 md:p-4 rounded-[24px] border border-gray-100/50 hover:bg-white hover:border-gray-200 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300">
-                
-                {/* Before Column */}
-                <div className="flex items-center gap-3 px-4 py-3 bg-[#F5F5F7] rounded-xl md:bg-transparent md:rounded-none">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-500">
-                    <XIcon size={14} strokeWidth={3} />
-                  </span>
-                  <span className="text-[14.5px] font-medium text-gray-500 line-through decoration-gray-300">
-                    {c.before}
-                  </span>
-                </div>
-
-                {/* Transition Indicator (Arrow / Badge) */}
-                <div className="flex md:flex-col items-center justify-center px-4">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#86868B] bg-white border border-gray-200/50 px-2 py-0.5 rounded-md shadow-sm mb-1 hidden md:block">
-                    {c.badge}
-                  </span>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                    <ArrowRight size={14} className="text-gray-400 group-hover:text-white transition-colors rotate-90 md:rotate-0" />
+              <div className="group relative bg-white/60 hover:bg-white rounded-[24px] p-3 md:p-3.5 border border-slate-100 hover:border-emerald-500/20 shadow-[0_2px_10px_rgba(0,0,0,0.005)] hover:shadow-[0_12px_24px_rgba(16,185,129,0.04)] transition-all duration-500">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-3 lg:gap-5">
+                  
+                  {/* Left: The Old Way (Friction) */}
+                  <div className="flex items-center gap-3 bg-[#FAF5F5]/70 rounded-xl p-3 border border-red-500/5 transition-all duration-300 group-hover:opacity-60">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-500 shadow-inner">
+                      <XIcon size={14} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[13.5px] font-medium text-slate-500 line-through decoration-red-200/70">
+                      {c.before}
+                    </span>
                   </div>
-                </div>
 
-                {/* After Column */}
-                <div className="flex items-center gap-3 px-4 py-3 bg-emerald-50/40 rounded-xl md:bg-transparent md:rounded-none group-hover:bg-emerald-50/20 transition-colors duration-300">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 group-hover:scale-110 transition-transform">
-                    <Check size={14} strokeWidth={3} className="animate-pulse" />
-                  </span>
-                  <span className="text-[14.5px] font-semibold text-[#1D1D1F]">
-                    {c.after}
-                  </span>
-                </div>
+                  {/* Middle: Service Badge & Arrow */}
+                  <div className="flex lg:flex-col items-center justify-center gap-2 lg:gap-1.5 shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-[9.5px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100/70 border border-slate-200/30 px-2.5 py-1 rounded-full">
+                      {c.icon}
+                      {c.badge}
+                    </span>
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 text-slate-400 border border-slate-100 group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:text-white transition-all duration-500 transform group-hover:scale-105">
+                      <ArrowRight size={13} strokeWidth={2.5} className="transition-transform duration-300 rotate-90 lg:rotate-0 group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
 
+                  {/* Right: The Tolpar Way (Freedom) */}
+                  <div className="flex items-center gap-3 bg-emerald-500/[0.015] rounded-xl p-3 border border-emerald-500/10 transition-all duration-300 group-hover:bg-emerald-500/[0.035] group-hover:border-emerald-500/20">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-[0_2px_8px_rgba(16,185,129,0.2)]">
+                      <Check size={14} strokeWidth={3} />
+                    </div>
+                    <span className="text-[13.5px] font-semibold text-slate-800">
+                      {c.after}
+                    </span>
+                  </div>
+
+                </div>
               </div>
             </FadeUp>
           ))}
@@ -1334,15 +1347,18 @@ function Wallet() {
         
         {/* Right Phone Mockup Column */}
         <FadeUp delay={0.2}>
-          <div className="relative mx-auto w-full max-w-[285px] rounded-[44px] border-[8px] border-slate-950 bg-white p-3 shadow-[0_25px_50px_rgba(0,0,0,0.12)] overflow-hidden">
+          <div className="relative mx-auto w-full max-w-[250px] aspect-[9/19.5] rounded-[36px] border-[3.5px] border-[#1A1A1C] bg-[#1A1A1C] p-[3.5px] shadow-[0_25px_60px_rgba(0,0,0,0.15)] ring-1 ring-white/10 overflow-hidden">
             
-            {/* Dynamic Island Notch */}
-            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-slate-900 rounded-full z-30" />
+            {/* Speaker Grill */}
+            <div className="absolute top-[1.5px] left-1/2 -translate-x-1/2 w-10 h-[1px] bg-black rounded-full z-30 opacity-60" />
 
-            <div className="flex h-full w-full flex-col bg-white">
+            {/* iPhone 16 Dynamic Island Notch */}
+            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-black rounded-full z-30 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2)]" />
+
+            <div className="relative flex h-full w-full flex-col bg-white rounded-[28px] overflow-hidden p-3.5 pt-6">
               
               {/* iPhone Status Bar */}
-              <div className="flex justify-between items-center px-2.5 pt-1.5 pb-2 text-[10px] font-bold text-slate-800 z-20">
+              <div className="flex justify-between items-center px-1.5 pt-0.5 pb-2 text-[9px] font-bold text-slate-800 z-20 select-none">
                 <span>9:41</span>
                 <div className="flex items-center gap-1">
                   <span className="flex gap-[1px] items-end h-1.5">
@@ -1351,71 +1367,74 @@ function Wallet() {
                     <span className="w-[1.2px] h-[5px] bg-slate-800 rounded-full" />
                     <span className="w-[1.2px] h-[6.5px] bg-slate-800 rounded-full" />
                   </span>
-                  <svg className="w-2.5 h-2.5 fill-current text-slate-800" viewBox="0 0 16 16">
+                  <svg className="w-2.2 h-2.2 fill-current text-slate-800" viewBox="0 0 16 16">
                     <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3 12.44 12.44 0 0 0 .663 5.379a.485.485 0 0 0-.048.736l.518.518a.49.49 0 0 0 .707 0 10.941 10.941 0 0 1 13.32 0 .49.49 0 0 0 .707 0l.518-.518z"/>
                   </svg>
-                  <div className="w-3.5 h-2 border border-slate-800 rounded-[2px] p-[0.5px] flex items-center">
-                    <div className="w-2 h-1 bg-slate-800 rounded-[0.5px]" />
+                  <div className="w-3.2 h-1.8 border border-slate-800 rounded-[2px] p-[0.5px] flex items-center">
+                    <div className="w-1.8 h-0.8 bg-slate-800 rounded-[0.5px]" />
                   </div>
                 </div>
               </div>
 
               {/* Green Balance Card from Screenshot */}
-              <div className="relative overflow-hidden rounded-[20px] bg-[#00B050] p-4 text-white shadow-md mt-2.5">
-                <div className="absolute -right-4 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-white/10 pointer-events-none" />
-                <div className="absolute -left-4 top-1/2 h-24 w-24 -translate-y-1/2 rounded-full bg-white/5 pointer-events-none" />
+              <div className="relative overflow-hidden rounded-[16px] bg-[#00B050] p-3 text-white shadow-sm mt-1">
+                <div className="absolute -right-4 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-white/10 pointer-events-none" />
+                <div className="absolute -left-4 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-white/5 pointer-events-none" />
                 
                 <div className="relative z-10 flex items-center justify-between">
                   <div>
-                    <div className="flex items-center gap-1 text-[11px] font-semibold text-white/95">
-                      Total Balance <Eye size={12} className="opacity-95" />
+                    <div className="flex items-center gap-1 text-[9.5px] font-semibold text-white/95">
+                      Total Balance <Eye size={10} className="opacity-95" />
                     </div>
-                    <div className="mt-1 text-[23px] font-extrabold tracking-tight">
+                    <div className="mt-0.5 text-[18px] font-extrabold tracking-tight">
                       ৳ 21.00
                     </div>
                   </div>
-                  <button className="rounded-full border border-white/35 bg-white/10 px-4 py-1.5 text-[10.5px] font-bold tracking-wide backdrop-blur-sm transition-all hover:bg-white/20">
+                  <button className="rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[9px] font-bold tracking-wide backdrop-blur-sm transition-all hover:bg-white/20">
                     Top Up
                   </button>
                 </div>
               </div>
 
               {/* Recent Activity List */}
-              <div className="mt-6 px-1">
-                <div className="mb-4 flex items-center justify-between">
-                  <span className="text-[16px] font-bold tracking-tight text-[#1D1D1F]">Recent Activity</span>
-                  <span className="text-[11px] font-bold text-emerald-500 cursor-pointer hover:underline">View All</span>
+              <div className="mt-4 px-0.5 flex-1 flex flex-col justify-start">
+                <div className="mb-2.5 flex items-center justify-between">
+                  <span className="text-[14px] font-bold tracking-tight text-[#1D1D1F]">Recent Activity</span>
+                  <span className="text-[10px] font-bold text-emerald-500 cursor-pointer hover:underline">View All</span>
                 </div>
 
-                <div className="space-y-3.5">
+                <div className="space-y-2">
                   {tx.map((t, i) => (
-                    <div key={i} className="flex items-center justify-between group cursor-pointer hover:bg-slate-50 p-1.5 rounded-2xl transition-colors duration-200">
-                      <div className="flex items-center gap-3">
+                    <div key={i} className="flex items-center justify-between group cursor-pointer hover:bg-slate-50 p-1 rounded-xl transition-colors duration-200">
+                      <div className="flex items-center gap-2">
                         {/* Transaction Icon / Smart Fridge Thumbnail */}
                         {t.icon === "topup" ? (
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 border border-emerald-100 shadow-sm">
-                            <ArrowDownLeft size={20} strokeWidth={2.5} className="animate-pulse" />
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500 border border-emerald-100 shadow-sm">
+                            <ArrowDownLeft size={16} strokeWidth={2.5} className="animate-pulse" />
                           </div>
                         ) : (
-                          <div className="h-10 w-10 shrink-0 rounded-xl bg-gray-50 border border-gray-100 p-0.5 shadow-sm overflow-hidden flex items-center justify-center">
+                          <div className="h-8 w-8 shrink-0 rounded-lg bg-gray-50 border border-gray-100 p-0.5 shadow-sm overflow-hidden flex items-center justify-center">
                             <img src={t.icon} className="h-full w-full object-contain" />
                           </div>
                         )}
                         <div>
-                          <div className="text-[13px] font-semibold text-[#1D1D1F] tracking-tight leading-tight">{t.name}</div>
-                          <div className="mt-0.5 text-[11px] text-gray-400">{t.sub}</div>
+                          <div className="text-[11.5px] font-semibold text-[#1D1D1F] tracking-tight leading-tight">{t.name}</div>
+                          <div className="mt-0.5 text-[9px] text-gray-400">{t.sub}</div>
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className={`text-[13.5px] font-bold ${t.amount.includes('+') ? 'text-emerald-500' : 'text-slate-800'}`}>
+                        <div className={`text-[11.5px] font-bold ${t.amount.includes('+') ? 'text-emerald-500' : 'text-slate-800'}`}>
                           {t.amount}
                         </div>
-                        <div className="mt-0.5 text-[10px] text-gray-400">{t.date}</div>
+                        <div className="mt-0.5 text-[8.5px] text-gray-400">{t.date}</div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* iPhone Home Indicator */}
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-16 h-[3px] bg-slate-200 rounded-full z-20" />
 
             </div>
           </div>
@@ -1426,33 +1445,184 @@ function Wallet() {
   );
 }
 
+// --- Micro-Animated Icon Components for QualityGrid ---
+function ShieldCheckAnimated() {
+  return (
+    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50/80 border border-blue-100/50 text-blue-600 shadow-[inset_0_2px_4px_rgba(59,130,246,0.05)]">
+      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z" />
+        <motion.path
+          d="m9 12 2 2 4-4"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", repeat: Infinity, repeatType: "reverse", repeatDelay: 2 }}
+        />
+      </svg>
+    </div>
+  );
+}
+
+function WifiAnimated() {
+  return (
+    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50/80 border border-indigo-100/50 text-indigo-600 shadow-[inset_0_2px_4px_rgba(99,102,241,0.05)]">
+      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 20h.01" />
+        <motion.path
+          d="M8.5 16.5a5 5 0 0 1 7 0"
+          animate={{ opacity: [0.2, 1, 0.2] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0 }}
+        />
+        <motion.path
+          d="M5 13a10 10 0 0 1 14 0"
+          animate={{ opacity: [0.2, 1, 0.2] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.35 }}
+        />
+        <motion.path
+          d="M1.5 9.5a15 15 0 0 1 21 0"
+          animate={{ opacity: [0.2, 1, 0.2] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
+        />
+      </svg>
+    </div>
+  );
+}
+
+function GlobeAnimated() {
+  return (
+    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50/80 border border-emerald-100/50 text-emerald-600 shadow-[inset_0_2px_4px_rgba(16,185,129,0.05)] overflow-hidden">
+      <motion.svg
+        className="h-6 w-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 25, ease: "linear", repeat: Infinity }}
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+        <path d="M2 12h20" />
+      </motion.svg>
+      {/* Small orbiting node representing live status updates */}
+      <motion.div
+        className="absolute h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.9)]"
+        animate={{
+          x: [12, -12, 12],
+          y: [-5, 5, -5],
+          scale: [0.7, 1.2, 0.7],
+        }}
+        transition={{ duration: 3.5, ease: "easeInOut", repeat: Infinity }}
+      />
+    </div>
+  );
+}
+
+function SupportAnimated() {
+  return (
+    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50/80 border border-amber-100/50 text-amber-600 shadow-[inset_0_2px_4px_rgba(245,158,11,0.05)]">
+      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+      </svg>
+      {/* Animated mini voice wave lines */}
+      <div className="absolute right-1 top-2.5 flex items-end gap-[1.5px] h-3">
+        <motion.span
+          className="w-[1.5px] rounded-full bg-amber-500"
+          style={{ height: '3px' }}
+          animate={{ height: ['3px', '9px', '3px'] }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut", delay: 0 }}
+        />
+        <motion.span
+          className="w-[1.5px] rounded-full bg-amber-500"
+          style={{ height: '5px' }}
+          animate={{ height: ['5px', '11px', '5px'] }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut", delay: 0.25 }}
+        />
+        <motion.span
+          className="w-[1.5px] rounded-full bg-amber-500"
+          style={{ height: '3px' }}
+          animate={{ height: ['3px', '8px', '3px'] }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function QualityGrid() {
   const cards = [
-    { emoji: "🔒", title: "Secure payments", desc: "End-to-end encrypted. Your money and data are always protected." },
-    { emoji: "📶", title: "Works everywhere", desc: "Low connection? No problem. The app works reliably even on slow networks." },
-    { emoji: "🌍", title: "Real-time updates", desc: "Live stock levels, live machine status, live transaction tracking." },
-    { emoji: "🤝", title: "Local support", desc: "Built by SOHUB in Bangladesh. Support team that speaks your language." },
+    {
+      icon: <ShieldCheckAnimated />,
+      glowBg: "hover:shadow-[0_24px_48px_rgba(59,130,246,0.07)]",
+      cornerGlow: "bg-blue-400",
+      title: "Secure payments",
+      desc: "End-to-end encrypted. Your money and data are always protected."
+    },
+    {
+      icon: <WifiAnimated />,
+      glowBg: "hover:shadow-[0_24px_48px_rgba(99,102,241,0.07)]",
+      cornerGlow: "bg-indigo-400",
+      title: "Works everywhere",
+      desc: "Low connection? No problem. The app works reliably even on slow networks."
+    },
+    {
+      icon: <GlobeAnimated />,
+      glowBg: "hover:shadow-[0_24px_48px_rgba(16,185,129,0.07)]",
+      cornerGlow: "bg-emerald-400",
+      title: "Real-time updates",
+      desc: "Live stock levels, live machine status, live transaction tracking."
+    },
+    {
+      icon: <SupportAnimated />,
+      glowBg: "hover:shadow-[0_24px_48px_rgba(245,158,11,0.07)]",
+      cornerGlow: "bg-amber-400",
+      title: "Local support",
+      desc: "Built by SOHUB in Bangladesh. Support team that speaks your language."
+    },
   ];
+
   return (
-    <section className="bg-white px-6 py-20 md:py-32">
+    <section className="relative overflow-hidden bg-slate-50/50 px-6 py-24 md:py-32">
+      {/* Background radial glow */}
+      <div className="pointer-events-none absolute left-1/4 top-1/4 -z-10 h-[350px] w-[350px] rounded-full bg-blue-50/20 blur-[100px]" />
+      <div className="pointer-events-none absolute right-1/4 bottom-1/4 -z-10 h-[350px] w-[350px] rounded-full bg-emerald-50/15 blur-[100px]" />
+
       <div className="mx-auto max-w-6xl">
-        <FadeUp>
-          <h2 className="text-[clamp(26px,3.5vw,40px)] font-bold tracking-tight text-[#1D1D1F]">
-            Built right. Built for you.
-          </h2>
-        </FadeUp>
-        <FadeUp delay={0.1}>
-          <p className="mt-3 max-w-xl text-[15px] text-[#6E6E73] md:text-[17px]">
-            Every feature designed with real users in mind.
-          </p>
-        </FadeUp>
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="text-center md:text-left">
+          <FadeUp>
+            <Overline>QUALITY & ASSURANCE</Overline>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <h2 className="mt-4 text-[clamp(28px,4.5vw,44px)] font-extrabold tracking-tight text-slate-900 leading-tight">
+              Built right. <span className="text-emerald-500">Built for you.</span>
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-slate-500 md:text-[17px]">
+              Every feature designed with real users in mind.
+            </p>
+          </FadeUp>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((c, i) => (
             <FadeUp key={c.title} delay={i * 0.08}>
-              <div className="h-full rounded-[20px] border border-gray-100 bg-[#F5F5F7] p-6">
-                <div className="text-3xl">{c.emoji}</div>
-                <div className="mt-3 text-[16px] font-semibold text-[#1D1D1F]">{c.title}</div>
-                <p className="mt-2 text-[13px] leading-relaxed text-[#6E6E73]">{c.desc}</p>
+              <div className={`group relative h-full rounded-[28px] border border-slate-100/80 bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.01)] hover:border-emerald-500/10 hover:-translate-y-1.5 transition-all duration-500 overflow-hidden ${c.glowBg}`}>
+                {/* Subtle decorative glow in card corner */}
+                <div className={`absolute -right-6 -top-6 -z-10 h-20 w-20 rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 ${c.cornerGlow}`} />
+
+                {c.icon}
+
+                <h3 className="mt-6 text-[17px] font-extrabold text-slate-900 tracking-tight">{c.title}</h3>
+                <p className="mt-2.5 text-[13px] leading-relaxed text-slate-500 font-medium">{c.desc}</p>
+                
+                {/* Interactive link indicator */}
+                <div className="mt-6 flex items-center gap-1.5 text-[11px] font-bold text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span>Learn more</span>
+                  <ArrowRight size={10} className="transform group-hover:translate-x-0.5 transition-transform" />
+                </div>
               </div>
             </FadeUp>
           ))}
@@ -1507,34 +1677,187 @@ function Ecosystem() {
 }
 
 function FoundersNote() {
+  const [lang, setLang] = useState<"en" | "bn">("en");
+
+  const enBullets = [
+    "Hungry on a busy workday but facing long queues at food points.",
+    "Phone running out of charge with no powerbank or outlet in sight.",
+    "Carrying heavy bags around with no safe place to temporarily store them.",
+    "Needing a quick snack or drink but only finding closed shops or cash-only machines."
+  ];
+
+  const bnBullets = [
+    "ক্ষুধা লাগলেও ফুড পয়েন্টগুলোর দীর্ঘ লাইনে দাঁড়িয়ে সময় অপচয় করা।",
+    "গুরুত্বপূর্ণ কাজের মাঝে ফোনের চার্জ শেষ হয়ে যাওয়া এবং চার্জার বা সকেট খুঁজে না পাওয়া।",
+    "ভারী ব্যাগ বা জিনিসপত্র নিয়ে ঘোরার সময় নিরাপদে রাখার মতো কোনো ব্যবস্থা না থাকা।",
+    "জরুরি সময়ে একটু হালকা খাবার বা পানির প্রয়োজন হলেও আশেপাশে কোনো দোকান না পাওয়া।"
+  ];
+
   return (
-    <section className="bg-[#FFFBF5] px-6 py-20 md:py-32">
+    <section className="relative overflow-hidden bg-[#F5F5F7]/60 px-6 py-20 md:py-32">
       <div className="mx-auto max-w-2xl">
-        <FadeUp>
-          <h2 className="text-center text-[clamp(24px,3vw,36px)] font-bold tracking-tight text-[#1D1D1F]">
-            A note from the team
-          </h2>
-        </FadeUp>
-        <FadeUp delay={0.1}>
-          <div className="mt-10 rounded-[24px] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
-            <div className="space-y-5 text-[15px] leading-[1.8] text-[#424245]">
-              <p>
-                Every day, thousands of people walk up to machines — to buy a snack, grab a meal,
-                charge their phone, or store their bags. And every time, the experience is the same:
-                confusing buttons, exact change only, no way to know what's inside.
-              </p>
-              <p>
-                We built Tolpar because we believed that interacting with a machine should be as
-                simple as texting a friend. Scan. Browse. Pay. Done.
-              </p>
-              <p>No cash. No confusion. No friction.</p>
-              <p>
-                Tolpar isn't about flashy technology. It's about making the small moments in your
-                day a little smoother. A little easier. A little more human.
-              </p>
-              <p>We're just getting started. And we'd love for you to be part of the journey.</p>
+        <div className="text-center mb-8">
+          <FadeUp>
+            <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400">
+              A NOTE FROM
             </div>
-            <div className="mt-6 font-bold text-[#1D1D1F]">— The SOHUB Team</div>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <h2 className="mt-1 text-[clamp(24px,3.5vw,32px)] font-bold tracking-tight text-slate-900 leading-none">
+              The SOHUB Team
+            </h2>
+          </FadeUp>
+        </div>
+
+        <FadeUp delay={0.15}>
+          <div className="relative rounded-[28px] border border-slate-200/60 bg-white p-6 md:p-12 shadow-[0_24px_50px_rgba(0,0,0,0.03)] overflow-hidden">
+            {/* Header info / Language Switcher */}
+            <div className="flex justify-between items-center mb-6 pb-6 border-b border-slate-100">
+              <span className="text-[16px] font-bold text-slate-900">
+                {lang === "en" ? "Dear Friend," : "প্রিয় সুধী,"}
+              </span>
+              <div className="inline-flex items-center gap-0.5 bg-slate-100 p-0.5 rounded-full text-xs font-semibold">
+                <button
+                  onClick={() => setLang("en")}
+                  className={`px-3.5 py-1.5 rounded-full transition-all duration-300 ${
+                    lang === "en"
+                      ? "bg-white text-slate-900 shadow-sm"
+                      : "text-slate-500 hover:text-slate-800"
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => setLang("bn")}
+                  className={`px-3.5 py-1.5 rounded-full transition-all duration-300 ${
+                    lang === "bn"
+                      ? "bg-white text-slate-900 shadow-sm"
+                      : "text-slate-500 hover:text-slate-800"
+                  }`}
+                >
+                  বাংলা
+                </button>
+              </div>
+            </div>
+
+            {/* Custom Sleek Divider */}
+            <div className="relative flex items-center justify-center my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-slate-100" />
+              </div>
+              <span className="relative bg-white px-3 text-[10px] text-emerald-500">◆</span>
+            </div>
+
+            {/* Main content body */}
+            <div className="space-y-5 text-[14.5px] leading-[1.8] text-slate-600 font-medium">
+              {lang === "en" ? (
+                <>
+                  <p>
+                    We believe technology should do more than just look fancy. It should make your busy day feel{" "}
+                    <span className="text-emerald-600 font-bold border-b-2 border-emerald-500/20 pb-0.5">smoother, faster, and simpler.</span>
+                  </p>
+                  <p>Every day, we run into small, annoying hassles in our busy city life:</p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    আমরা বিশ্বাস করি, প্রযুক্তির উদ্দেশ্য কেবল চাকচিক্য নয়; বরং এটি আমাদের ব্যস্ত দিনগুলোকে আরও{" "}
+                    <span className="text-emerald-600 font-bold border-b-2 border-emerald-500/20 pb-0.5">সহজ, স্বাচ্ছন্দ্যময় ও গতিশীল</span> করে তুলবে।
+                  </p>
+                  <p>আমাদের ব্যস্ত নাগরিক জীবনে প্রতিদিন আমরা এমন কিছু ছোটখাটো ঝামেলার মুখোমুখি হই যা আমাদের সময় নষ্ট করে:</p>
+                </>
+              )}
+
+              {/* Bullet list */}
+              <div className="my-6 space-y-4">
+                {(lang === "en" ? enBullets : bnBullets).map((bullet, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white mt-0.5 shadow-[0_2px_6px_rgba(16,185,129,0.2)]">
+                      <Check size={11} strokeWidth={3.5} />
+                    </span>
+                    <span className="text-[14.5px] text-slate-600 font-medium leading-relaxed">
+                      {bullet}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {lang === "en" ? (
+                <>
+                  <p>Technology should solve these daily friction points, not add to them.</p>
+                  <p>
+                    <span className="text-slate-950 font-bold">That's why we built Tolpar.</span>
+                  </p>
+                  <p>
+                    Not as a luxury for a few, but as a practical, self-service network designed for real busy people, 
+                    real workspaces, universities, and real everyday life in Bangladesh.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>প্রযুক্তি এই ছোটখাটো দৈনিক ঝামেলাগুলো দূর করার জন্য হওয়া উচিত, জটিলতা বাড়ানোর জন্য নয়।</p>
+                  <p>
+                    <span className="text-slate-950 font-bold">ঠিক এই উদ্দেশ্যেই আমরা তৈরি করেছি টোলপার (Tolpar)।</span>
+                  </p>
+                  <p>
+                    এটি কোনো বিলাসিতা নয়, বরং বাংলাদেশীদের কর্মব্যস্ত দিনগুলোকে সহজ করতে ফুড পয়েন্ট, ভেন্ডিং মেশিন, 
+                    পাওয়ার ব্যাংক স্টেশন এবং স্মার্ট লকারের এক সমন্বিত সেলফ-সার্ভিস নেটওয়ার্ক।
+                  </p>
+                </>
+              )}
+
+              {/* Apple Style Quote Card */}
+              <div className="relative rounded-2xl bg-[#F5F5F7] border border-slate-100 p-5 md:p-6 my-8 flex items-start gap-4 shadow-sm">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-[0_2px_6px_rgba(16,185,129,0.2)] text-xs">
+                  💚
+                </span>
+                <p className="text-[14.5px] italic font-semibold text-slate-800 leading-relaxed">
+                  {lang === "en"
+                    ? '"How can we make a busy day a little more seamless and human?"'
+                    : '"কীভাবে আমরা আমাদের ব্যস্ত জীবনের প্রতিটি মুহূর্তকে আরেকতু সহজ ও সাবলীল করতে পারি?"'}
+                </p>
+              </div>
+
+              {lang === "en" ? (
+                <>
+                  <p>
+                    For us, Tolpar is not about showing off automated machines. It's about protecting{" "}
+                    <span className="text-emerald-600 font-bold">peace of mind</span> and giving you back your time.
+                  </p>
+                  <p>
+                    And when you use the Tolpar app, you are part of a journey to make our cities smarter and more self-reliant.
+                  </p>
+                  <p className="font-bold text-slate-900">Because convenience matters in a busy life.</p>
+                  <p>Thank you for allowing us to be part of yours.</p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    আমাদের কাছে টোলপার মানে কেবল কিছু আধুনিক মেশিন স্থাপন করা নয়; এটি আপনাকে দিচ্ছে সময়ের স্বাধীনতা ও{" "}
+                    <span className="text-emerald-600 font-bold">মানসিক প্রশান্তি।</span>
+                  </p>
+                  <p>
+                    টোলপার অ্যাপ ব্যবহার করার অর্থ আপনিও আমাদের শহরগুলোকে স্বাবলম্বী ও স্মার্ট করে তোলার এই যাত্রার একজন গর্বিত অংশীদার।
+                  </p>
+                  <p className="font-bold text-slate-900">কারণ ব্যস্ত জীবনে একটু সহজতা অত্যন্ত মূল্যবান।</p>
+                  <p>আপনার দিনটিকে কিছুটা সহজ করার সুযোগ দেওয়ার জন্য আন্তরিক ধন্যবাদ।</p>
+                </>
+              )}
+            </div>
+
+            {/* Custom Divider */}
+            <div className="relative flex items-center justify-center my-8">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-slate-150" />
+              </div>
+              <span className="relative bg-white px-3 text-[10px] text-emerald-500">◆</span>
+            </div>
+
+            {/* SOHUB Team Signature */}
+            <div className="text-center font-bold text-slate-800 text-[14.5px] tracking-wide">
+              {lang === "en" ? "The SOHUB Team" : "টোলপার টিম (সোহাব ফ্যামিলি)"}
+            </div>
+
           </div>
         </FadeUp>
       </div>
