@@ -184,7 +184,7 @@ export function Navbar() {
       </div>
 
       {/* Floating Navbar */}
-      <nav className={`w-full flex justify-center transition-all duration-300 px-6 md:px-10 ${scrolled ? "mt-3" : "mt-6"}`}>
+      <nav className={`w-full flex justify-center transition-all duration-300 px-6 md:px-10 relative ${scrolled ? "mt-3" : "mt-6"}`}>
         <div className={`flex w-full max-w-6xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100' : 'bg-transparent'}`}>
           
           {/* Logo */}
@@ -242,9 +242,9 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="absolute left-6 right-6 top-[70px] mt-2 rounded-3xl border border-gray-100 bg-white p-6 shadow-xl backdrop-blur-2xl md:hidden">
+          <div className="absolute left-6 right-6 top-full mt-2 rounded-3xl border border-gray-100 bg-white p-6 shadow-xl backdrop-blur-2xl md:hidden">
             <div className="flex flex-col gap-4">
-              {links.map((l) => (
+              {allLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}

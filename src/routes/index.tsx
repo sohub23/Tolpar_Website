@@ -209,13 +209,25 @@ function TrustGrid() {
         </div>
         
         <FadeUp delay={0.4}>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 rounded-full border border-white/40 bg-white/40 px-8 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-2xl">
-            {claims.map((c, i) => (
-              <span key={c} className="flex items-center gap-6 text-[14px] font-semibold tracking-tight text-gray-600">
-                {c}
-                {i < claims.length - 1 && <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/40"></span>}
-              </span>
-            ))}
+          <div className="mt-8 border border-white/40 bg-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-2xl rounded-[24px] sm:rounded-full px-6 py-4.5 sm:px-8 sm:py-4">
+            {/* Mobile View: 2x2 symmetric layout */}
+            <div className="grid grid-cols-2 gap-y-3.5 gap-x-4 text-center sm:hidden">
+              {claims.map((c) => (
+                <span key={c} className="text-[13px] font-semibold tracking-tight text-gray-600">
+                  {c}
+                </span>
+              ))}
+            </div>
+            
+            {/* Desktop View: Horizontal single-line pill */}
+            <div className="hidden sm:flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+              {claims.map((c, i) => (
+                <span key={c} className="flex items-center gap-6 text-[14px] font-semibold tracking-tight text-gray-600">
+                  {c}
+                  {i < claims.length - 1 && <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/40"></span>}
+                </span>
+              ))}
+            </div>
           </div>
         </FadeUp>
       </div>
@@ -475,7 +487,7 @@ function DailyCompanion() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease }}
-          className="relative h-[450px] overflow-hidden rounded-[24px] md:h-[550px] shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
+          className="relative h-[320px] sm:h-[450px] md:h-[550px] overflow-hidden rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
         >
           <img 
             src={assetPath("/daily-companion.webp")} 
@@ -617,11 +629,11 @@ function Personas() {
             </div>
           </FadeUp>
 
-          {/* Card 2: Professionals (Image Top, Text Bottom) */}
+          {/* Card 2: Professionals (Image Top, Text Bottom on Desktop / Text Top, Image Bottom on Mobile) */}
           <FadeUp delay={0.3} className="lg:col-span-1 flex flex-col">
             <div className="group flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] bg-[#F5F5F7] border border-gray-200/50 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] min-h-[480px] relative">
-              {/* Media Container - FULL BLEED AT TOP */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E2DFDC]">
+              {/* Media Container - FULL BLEED AT TOP (Desktop) / BOTTOM (Mobile) */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E2DFDC] order-2 lg:order-1 mt-auto lg:mt-0">
                 <img 
                   src={assetPath("/office_diorama_new.png")} 
                   alt="Professionals" 
@@ -630,10 +642,10 @@ function Personas() {
               </div>
 
               {/* Tilted larger smartphone mockup absolute relative to card */}
-              <PhoneMockup src={assetPath("/image_copy_3.png")} className="top-4 right-4 lg:top-6 lg:right-6" />
+              <PhoneMockup src={assetPath("/image_copy_3.png")} className="bottom-4 right-4 lg:top-6 lg:right-6 lg:bottom-auto" />
 
-              {/* Text Content AT BOTTOM */}
-              <div className="p-8 pt-6 pb-8 pr-28 sm:pr-32 lg:pr-24 z-10">
+              {/* Text Content - TOP (Mobile) / BOTTOM (Desktop) */}
+              <div className="p-8 pt-6 pb-8 pr-28 sm:pr-32 lg:pr-24 z-10 order-1 lg:order-2">
                 <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
                   For Work & Gym
                 </span>
@@ -2021,8 +2033,8 @@ function FinalCTAFooter() {
 
       <footer className="bg-[#111111] px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-            <div>
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-3">
+            <div className="col-span-2 md:col-span-1">
               <div className="text-base font-bold tracking-[0.06em] text-white">TOLPAR</div>
               <div className="mt-2 text-[13px] text-white/40">A SOHUB Initiative</div>
               <div className="mt-5 flex gap-3">
@@ -2043,7 +2055,7 @@ function FinalCTAFooter() {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="col-span-1">
               <div className="text-[13px] font-semibold uppercase tracking-wider text-white/80">
                 Services
               </div>
@@ -2062,7 +2074,7 @@ function FinalCTAFooter() {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="col-span-1">
               <div className="text-[13px] font-semibold uppercase tracking-wider text-white/80">
                 Company
               </div>
