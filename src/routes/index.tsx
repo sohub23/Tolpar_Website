@@ -2036,7 +2036,7 @@ function FinalCTAFooter() {
           <div className="grid grid-cols-2 gap-10 md:grid-cols-3">
             <div className="col-span-2 md:col-span-1">
               <div className="text-base font-bold tracking-[0.06em] text-white">TOLPAR</div>
-              <div className="mt-2 text-[13px] text-white/40">A SOHUB Initiative</div>
+              <div className="mt-2 text-[13px] leading-relaxed text-white/40">Your everyday smart companion that connects you to smart machines, cashless payments, and seamless services all in one app.</div>
               <div className="mt-5 flex gap-3">
                 {[
                   { Icon: Facebook, href: "https://www.facebook.com/solutionhubtechnologies" },
