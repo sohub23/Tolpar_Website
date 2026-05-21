@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import HeroWave from "@/components/ui/dynamic-wave-canvas-background";
+import { assetPath } from "@/lib/asset-path";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
@@ -164,7 +165,7 @@ function Hero() {
             <div className="relative rounded-[36px] border-[3.5px] border-[#1A1A1C] bg-[#1A1A1C] shadow-2xl shadow-emerald-500/10 overflow-hidden ring-1 ring-white/10">
                {/* iPhone 16 Dynamic Island Notch */}
                <div className="absolute left-1/2 top-1.5 z-20 h-3 w-14 -translate-x-1/2 rounded-full bg-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
-               <img src="/app_screen.png" alt="App Screen" className="h-auto w-full rounded-[31px] object-cover" />
+               <img src={assetPath("/app_screen.png")} alt="App Screen" className="h-auto w-full rounded-[31px] object-cover" />
             </div>
           </div>
         </FadeUp>
@@ -476,7 +477,7 @@ function DailyCompanion() {
           className="relative h-[450px] overflow-hidden rounded-[24px] md:h-[550px] shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
         >
           <img 
-            src="/daily-companion.webp" 
+            src={assetPath("/daily-companion.webp")} 
             alt="Tolpar Daily Companion" 
             className="h-full w-full object-cover"
           />
@@ -604,14 +605,14 @@ function Personas() {
               {/* Media Container - FULL BLEED */}
               <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#EAE3DC] mt-auto">
                 <img 
-                  src="/student_diorama_new.png" 
+                  src={assetPath("/student_diorama_new.png")} 
                   alt="Students" 
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
               {/* Tilted larger smartphone mockup absolute relative to card */}
-              <PhoneMockup src="/image_copy_4.png" className="bottom-4 right-4 lg:bottom-6 lg:right-6" />
+              <PhoneMockup src={assetPath("/image_copy_4.png")} className="bottom-4 right-4 lg:bottom-6 lg:right-6" />
             </div>
           </FadeUp>
 
@@ -621,14 +622,14 @@ function Personas() {
               {/* Media Container - FULL BLEED AT TOP */}
               <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E2DFDC]">
                 <img 
-                  src="/office_diorama_new.png" 
+                  src={assetPath("/office_diorama_new.png")} 
                   alt="Professionals" 
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
               {/* Tilted larger smartphone mockup absolute relative to card */}
-              <PhoneMockup src="/image_copy_3.png" className="top-4 right-4 lg:top-6 lg:right-6" />
+              <PhoneMockup src={assetPath("/image_copy_3.png")} className="top-4 right-4 lg:top-6 lg:right-6" />
 
               {/* Text Content AT BOTTOM */}
               <div className="p-8 pt-6 pb-8 pr-28 sm:pr-32 lg:pr-24 z-10">
@@ -690,14 +691,14 @@ function Personas() {
               {/* Media Container - FULL BLEED */}
               <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E6DEC9] mt-auto">
                 <img 
-                  src="/food_court_diorama_new.png" 
+                  src={assetPath("/food_court_diorama_new.png")} 
                   alt="Families and Food Courts" 
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
               {/* Tilted larger smartphone mockup absolute relative to card */}
-              <PhoneMockup src="/image_copy_2.png" className="bottom-4 right-4 lg:bottom-6 lg:right-6" />
+              <PhoneMockup src={assetPath("/image_copy_2.png")} className="bottom-4 right-4 lg:bottom-6 lg:right-6" />
             </div>
           </FadeUp>
 
@@ -712,25 +713,25 @@ function MachineShowcase() {
     {
       name: "O-Mama Point",
       desc: "Fresh meals at workplaces and campuses. Scan, pick, eat.",
-      img: "/sohub-omama-v2-Cb04jp3t.png",
+      img: assetPath("/sohub-omama-v2-Cb04jp3t.png"),
       href: "https://omama.sohub.com.bd/",
     },
     {
       name: "Smart Vending",
       desc: "Snacks and drinks, 24/7. Cashless and instant.",
-      img: "/sohub-snacks-CIEARMGV.png",
+      img: assetPath("/sohub-snacks-CIEARMGV.png"),
       href: "https://machines.sohub.com.bd/",
     },
     {
       name: "Powerbank Station",
       desc: "Rent a charge. Return anywhere. Auto-billing.",
-      img: "/sohub-power-bank-v1-Bcca8uE6.png",
+      img: assetPath("/sohub-power-bank-v1-Bcca8uE6.png"),
       href: "https://machines.sohub.com.bd/machines/power-bank",
     },
     {
       name: "Smart Locker",
       desc: "Secure storage with digital keys. Lock, go, return.",
-      img: "/sohub-locker-v1-Dsl9zKzH.png",
+      img: assetPath("/sohub-locker-v1-Dsl9zKzH.png"),
       href: "https://machines.sohub.com.bd/machines/smart-locker",
     },
   ];
@@ -1273,21 +1274,21 @@ function Wallet() {
       sub: "O-Mama Fridge #04", 
       date: "May 18, 2:49 PM", 
       amount: "-৳45.00", 
-      icon: "/sohub-omama-v2-Cb04jp3t.png" 
+      icon: assetPath("/sohub-omama-v2-Cb04jp3t.png") 
     },
     { 
       name: "Smart Locker", 
       sub: "Locker Slot #B-12", 
       date: "May 17, 11:36 AM", 
       amount: "-৳15.00", 
-      icon: "/sohub-locker-v1-Dsl9zKzH.png" 
+      icon: assetPath("/sohub-locker-v1-Dsl9zKzH.png") 
     },
     { 
       name: "Powerbank Hub", 
       sub: "Station #PB-88", 
       date: "May 14, 3:56 PM", 
       amount: "-৳20.00", 
-      icon: "/sohub-power-bank-v1-Bcca8uE6.png" 
+      icon: assetPath("/sohub-power-bank-v1-Bcca8uE6.png") 
     },
     { 
       name: "bKash Topup", 
@@ -1971,23 +1972,26 @@ function FinalCTAFooter() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <p className="mt-6 text-[16px] text-white/50 font-medium tracking-wide">Available on iOS and Android.</p>
+            <p className="mt-6 text-[16px] text-white/50 font-medium tracking-wide">Available on Android. iOS coming soon.</p>
           </FadeUp>
           <FadeUp delay={0.2}>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-4.5">
-              {/* App Store Button with original Apple logo */}
-              <a
-                href="#"
-                className="group flex w-full max-w-[240px] sm:max-w-none sm:w-auto items-center justify-center gap-3 rounded-[16px] bg-white text-black px-7 py-3 text-left transition-all duration-300 hover:scale-105 hover:bg-gray-50 hover:shadow-[0_12px_30px_rgba(255,255,255,0.18)]"
+              {/* App Store upcoming state */}
+              <div
+                aria-disabled="true"
+                className="relative flex w-full max-w-[240px] cursor-not-allowed items-center justify-center gap-3 rounded-[16px] border border-white/10 bg-white/10 px-7 py-3 text-left text-white/45 opacity-80 sm:w-auto sm:max-w-none"
               >
-                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-black shrink-0 transition-transform group-hover:scale-110 duration-300">
+                <span className="absolute -top-2.5 right-3 rounded-full border border-emerald-400/20 bg-emerald-400/15 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-200">
+                  Upcoming
+                </span>
+                <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 fill-current">
                   <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z"/>
                 </svg>
                 <div className="flex flex-col select-none">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-gray-500 leading-none">Download on the</span>
+                  <span className="text-[9px] uppercase font-bold tracking-wider text-white/35 leading-none">Download on the</span>
                   <span className="text-[16px] font-bold font-sans leading-tight mt-0.5">App Store</span>
                 </div>
-              </a>
+              </div>
 
               {/* Google Play Button with original colored Play Store logo */}
               <a
@@ -2086,7 +2090,7 @@ function FinalCTAFooter() {
 
 // ============ Page ============
 
-function TolparLanding() {
+export function TolparLanding() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />

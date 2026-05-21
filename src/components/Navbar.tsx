@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { assetPath } from "@/lib/asset-path";
 
 const links = [
   { href: "#features", label: "Features" },
@@ -69,7 +70,7 @@ export function Navbar() {
         
         {/* Logo */}
         <a href="#top" className="flex items-center gap-2" onClick={() => setActiveTab("#top")}>
-          <img src="/tolpar_logo.png" alt="Tolpar" className="h-11 md:h-12 w-auto object-contain" />
+          <img src={assetPath("/tolpar_logo.png")} alt="Tolpar" className="h-11 md:h-12 w-auto object-contain" />
         </a>
 
         {/* Desktop Links - Center Pill */}
@@ -100,11 +101,6 @@ export function Navbar() {
 
         {/* Right Actions */}
         <div className="hidden items-center gap-4 md:flex">
-          <div className="flex items-center gap-1 text-[13px] font-medium text-gray-600 cursor-pointer hover:text-gray-900">
-            <Globe size={16} />
-            <span>En</span>
-            <ChevronDown size={14} />
-          </div>
           <div className="flex items-center ml-2">
             <a
               href="#download"
