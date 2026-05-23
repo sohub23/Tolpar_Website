@@ -2135,7 +2135,7 @@ function FinalCTAFooter() {
               </ul>
             </div>
           </div>
-          <div className="mt-10 border-t border-white/10 pt-6 text-[12px] text-white/40">
+          <div className="mt-10 border-t border-white/10 pt-6 text-[12px] text-white/40 text-center">
             © 2026{" "}
             <a
               href="https://sohub.com.bd"
