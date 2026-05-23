@@ -633,11 +633,11 @@ function Personas() {
           <FadeUp delay={0.3} className="lg:col-span-1 flex flex-col">
             <div className="group flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] bg-[#F5F5F7] border border-gray-200/50 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] min-h-[480px] relative">
               {/* Media Container - FULL BLEED AT TOP (Desktop) / BOTTOM (Mobile) */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E2DFDC] order-2 lg:order-1 mt-auto lg:mt-0">
+              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#E2DFDC] order-2 lg:order-1 mt-auto lg:mt-0">
                 <img
                   src={assetPath("/office_diorama_new.png")}
                   alt="Professionals"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="h-full w-full object-cover object-[8%_35%] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
