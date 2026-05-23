@@ -73,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Tolpar - Your Everyday Smart App | by SOHUB" },
-      { name: "description", content: "Tolpar connects you to smart machines everywhere, including O-Mama food points, smart vending, powerbank stations, and smart lockers. Scan, pay, and go. Built by SOHUB - Solution Hub Technologies." },
+      { name: "description", content: "Tolpar connects you to smart machines everywhere, including O MAMA points, smart vending, powerbank stations, and smart lockers. Scan, pay, and go. Built by SOHUB - Solution Hub Technologies." },
       { name: "author", content: "SOHUB - Solution Hub Technologies" },
       { name: "robots", content: "index, follow" },
       { name: "theme-color", content: "#10B981" },

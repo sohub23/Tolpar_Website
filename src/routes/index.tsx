@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Tolpar connects you to smart machines everywhere, including food points, vending, powerbank stations, and lockers. Scan, pay, and go.",
+          "Tolpar connects you to smart machines everywhere, including O MAMA points, vending, powerbank stations, and lockers. Scan, pay, and go.",
       },
       { property: "og:title", content: "Tolpar - by SOHUB" },
       {
@@ -139,7 +139,7 @@ function Hero() {
           <p className="mx-auto mt-8 max-w-2xl text-[16px] leading-relaxed text-gray-500 md:text-[18px]">
             <span className="font-medium text-gray-800">Everything you need, in one smart app.</span>
             <br className="mt-2" />
-            Find vending machines, food points, lockers, and powerbanks near you. Just scan, pay, and go.
+            Find vending machines, O MAMA points, lockers, and powerbanks near you. Just scan, pay, and go.
           </p>
         </FadeUp>
 
@@ -1712,14 +1712,14 @@ function FoundersNote() {
   const [lang, setLang] = useState<"en" | "bn">("en");
 
   const enBullets = [
-    "Hungry on a busy workday but facing long queues at food points.",
+    "Hungry on a busy workday but facing long queues at O MAMA points.",
     "Phone running out of charge with no powerbank or outlet in sight.",
     "Carrying heavy bags around with no safe place to temporarily store them.",
     "Needing a quick snack or drink but only finding closed shops or cash-only machines."
   ];
 
   const bnBullets = [
-    "ক্ষুধা লাগলেও ফুড পয়েন্টগুলোর দীর্ঘ লাইনে দাঁড়িয়ে সময় অপচয় করা।",
+    "ক্ষুধা লাগলেও O MAMA পয়েন্টগুলোর দীর্ঘ লাইনে দাঁড়িয়ে সময় অপচয় করা।",
     "গুরুত্বপূর্ণ কাজের মাঝে ফোনের চার্জ শেষ হয়ে যাওয়া এবং চার্জার বা সকেট খুঁজে না পাওয়া।",
     "ভারী ব্যাগ বা জিনিসপত্র নিয়ে ঘোরার সময় নিরাপদে রাখার মতো কোনো ব্যবস্থা না থাকা।",
     "জরুরি সময়ে একটু হালকা খাবার বা পানির প্রয়োজন হলেও আশেপাশে কোনো দোকান না পাওয়া।"
@@ -1830,7 +1830,7 @@ function FoundersNote() {
                     <span className="text-slate-950 font-bold">ঠিক এই উদ্দেশ্যেই আমরা তৈরি করেছি টোলপার (Tolpar)।</span>
                   </p>
                   <p>
-                    এটি কোনো বিলাসিতা নয়, বরং বাংলাদেশীদের কর্মব্যস্ত দিনগুলোকে সহজ করতে ফুড পয়েন্ট, ভেন্ডিং মেশিন,
+                    এটি কোনো বিলাসিতা নয়, বরং বাংলাদেশীদের কর্মব্যস্ত দিনগুলোকে সহজ করতে O MAMA পয়েন্ট, ভেন্ডিং মেশিন,
                     পাওয়ার ব্যাংক স্টেশন এবং স্মার্ট লকারের এক সমন্বিত সেলফ-সার্ভিস নেটওয়ার্ক।
                   </p>
                 </>
