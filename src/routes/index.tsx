@@ -114,11 +114,11 @@ function Hero() {
             <span className="relative inline-block whitespace-nowrap text-emerald-500 px-2">
               Smart App.
               {/* Custom Swoosh matching the reference exactly */}
-              <svg 
-                className="absolute -bottom-1 left-0 w-full h-4 text-emerald-500/90 z-0" 
-                viewBox="0 0 100 20" 
+              <svg
+                className="absolute -bottom-1 left-0 w-full h-4 text-emerald-500/90 z-0"
+                viewBox="0 0 100 20"
                 preserveAspectRatio="none"
-                fill="none" 
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <motion.path
@@ -134,7 +134,7 @@ function Hero() {
             </span>
           </h1>
         </FadeUp>
-        
+
         <FadeUp delay={0.2}>
           <p className="mx-auto mt-8 max-w-2xl text-[16px] leading-relaxed text-gray-500 md:text-[18px]">
             <span className="font-medium text-gray-800">Everything you need, in one smart app.</span>
@@ -164,9 +164,9 @@ function Hero() {
           <div className="relative z-10 mx-auto w-[230px] md:w-[270px]">
             {/* Phone Frame */}
             <div className="relative rounded-[36px] border-[3.5px] border-[#1A1A1C] bg-[#1A1A1C] shadow-2xl shadow-emerald-500/10 overflow-hidden ring-1 ring-white/10">
-               {/* iPhone 16 Dynamic Island Notch */}
-               <div className="absolute left-1/2 top-1.5 z-20 h-3 w-14 -translate-x-1/2 rounded-full bg-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
-               <img src={assetPath("/app_screen.png")} alt="App Screen" className="h-auto w-full rounded-[31px] object-cover" />
+              {/* iPhone 16 Dynamic Island Notch */}
+              <div className="absolute left-1/2 top-1.5 z-20 h-3 w-14 -translate-x-1/2 rounded-full bg-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]" />
+              <img src={assetPath("/app_screen.png")} alt="App Screen" className="h-auto w-full rounded-[31px] object-cover" />
             </div>
           </div>
         </FadeUp>
@@ -207,7 +207,7 @@ function TrustGrid() {
             </FadeUp>
           ))}
         </div>
-        
+
         <FadeUp delay={0.4}>
           <div className="mt-8 border border-white/40 bg-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-2xl rounded-[24px] sm:rounded-full px-6 py-4.5 sm:px-8 sm:py-4">
             {/* Mobile View: 2x2 symmetric layout */}
@@ -218,7 +218,7 @@ function TrustGrid() {
                 </span>
               ))}
             </div>
-            
+
             {/* Desktop View: Horizontal single-line pill */}
             <div className="hidden sm:flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
               {claims.map((c, i) => (
@@ -239,7 +239,7 @@ function LifeMoving() {
   return (
     <section className="bg-white px-6 py-24 md:py-32 flex items-center justify-center">
       <div className="mx-auto max-w-3xl text-center">
-        
+
         <FadeUp>
           <h2 className="text-[clamp(32px,5vw,52px)] font-bold leading-[1.1] tracking-tight text-[#1D1D1F]">
             Life is moving faster.
@@ -279,43 +279,43 @@ function VideoGallery() {
   const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null);
 
   const videos = [
-    { 
-      title: "O Mama Smart Freeze Vending Machine", 
+    {
+      title: "O Mama Smart Freeze Vending Machine",
       id: "o8ahmgEQtZU",
       thumb: "https://img.youtube.com/vi/o8ahmgEQtZU/maxresdefault.jpg"
     },
-    { 
-      title: "Power Bank Rental Vending Machine", 
+    {
+      title: "Power Bank Rental Vending Machine",
       id: "Y08VPoImhoA",
       thumb: "https://img.youtube.com/vi/Y08VPoImhoA/maxresdefault.jpg"
     },
-    { 
-      title: "Power Bank Rental (Demo)", 
+    {
+      title: "Power Bank Rental (Demo)",
       id: "Y08VPoImhoA",
       thumb: "https://img.youtube.com/vi/Y08VPoImhoA/maxresdefault.jpg"
     },
-    { 
-      title: "Remote Control by SOHUB", 
+    {
+      title: "Remote Control by SOHUB",
       id: "Vd2hu5TESRE",
       thumb: "https://img.youtube.com/vi/Vd2hu5TESRE/maxresdefault.jpg"
     },
-    { 
-      title: "O Mama Smart Freezer at SAVOR", 
+    {
+      title: "O Mama Smart Freezer at SAVOR",
       id: "mzh978dzt_E",
       thumb: "https://img.youtube.com/vi/mzh978dzt_E/maxresdefault.jpg"
     },
-    { 
-      title: "O Mama Launching Event", 
+    {
+      title: "O Mama Launching Event",
       id: "MOJZuKggX2c",
       thumb: "https://img.youtube.com/vi/MOJZuKggX2c/maxresdefault.jpg"
     },
-    { 
-      title: "O Mama Smart Freezer", 
+    {
+      title: "O Mama Smart Freezer",
       id: "h5ylw8PR3_s",
       thumb: "https://img.youtube.com/vi/h5ylw8PR3_s/maxresdefault.jpg"
     },
-    { 
-      title: "Locker Vending Machine Test", 
+    {
+      title: "Locker Vending Machine Test",
       id: "jZk6Zv-q-zw",
       thumb: "https://img.youtube.com/vi/jZk6Zv-q-zw/maxresdefault.jpg"
     },
@@ -343,9 +343,9 @@ function VideoGallery() {
             </FadeUp>
           </div>
           <FadeUp delay={0.2}>
-            <a 
-              href="https://youtube.com/playlist?list=PL5gB5kNB2iq31_cOhI2j6I1uXXSnRLmUE" 
-              target="_blank" 
+            <a
+              href="https://youtube.com/playlist?list=PL5gB5kNB2iq31_cOhI2j6I1uXXSnRLmUE"
+              target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-5 py-2.5 text-[14px] font-semibold text-emerald-600 transition-colors hover:bg-emerald-100"
             >
@@ -358,18 +358,18 @@ function VideoGallery() {
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {videos.map((v, i) => (
             <FadeUp key={i} delay={i * 0.05}>
-              <div 
-                className="group cursor-pointer" 
+              <div
+                className="group cursor-pointer"
                 onClick={() => setActiveVideoIndex(i)}
               >
                 <div className="relative aspect-video w-full overflow-hidden rounded-[16px] bg-gray-100 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
-                  <img 
-                    src={v.thumb} 
-                    alt={v.title} 
-                    className="absolute inset-0 h-full w-full object-cover" 
+                  <img
+                    src={v.thumb}
+                    alt={v.title}
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/10" />
-                  
+
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-sm backdrop-blur transition-transform duration-300 group-hover:scale-110">
@@ -377,7 +377,7 @@ function VideoGallery() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Title Below Image */}
                 <div className="mt-4">
                   <h3 className="text-[15px] font-bold leading-snug text-[#1D1D1F] line-clamp-2 transition-colors duration-200 group-hover:text-emerald-500">
@@ -445,7 +445,7 @@ function VideoGallery() {
                     className="absolute inset-0 h-full w-full"
                   ></iframe>
                 </div>
-                
+
                 {/* Orange Title Bar (Matching Reference) */}
                 <div className="bg-[#FB8A09] px-6 py-4">
                   <h3 className="text-[16px] font-semibold text-white md:text-[18px]">
@@ -489,9 +489,9 @@ function DailyCompanion() {
           transition={{ duration: 0.8, ease }}
           className="relative h-[320px] sm:h-[450px] md:h-[550px] overflow-hidden rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
         >
-          <img 
-            src={assetPath("/daily-companion.webp")} 
-            alt="Tolpar Daily Companion" 
+          <img
+            src={assetPath("/daily-companion.webp")}
+            alt="Tolpar Daily Companion"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -526,12 +526,12 @@ function DailyCompanion() {
   );
 }
 
-function PhoneMockup({ 
-  src, 
-  className = "" 
-}: { 
-  src: string; 
-  className?: string; 
+function PhoneMockup({
+  src,
+  className = ""
+}: {
+  src: string;
+  className?: string;
 }) {
   return (
     <div className={`absolute [perspective:1000px] z-20 transition-all duration-500 ${className}`}>
@@ -540,10 +540,10 @@ function PhoneMockup({
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#1c1c1e] rounded-full z-30" />
         {/* Glare effect */}
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-20 pointer-events-none" />
-        <img 
-          src={src} 
-          alt="App Screen" 
-          className="h-full w-full object-cover rounded-[21px] select-none pointer-events-none" 
+        <img
+          src={src}
+          alt="App Screen"
+          className="h-full w-full object-cover rounded-[21px] select-none pointer-events-none"
         />
       </div>
     </div>
@@ -587,7 +587,7 @@ function Personas() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3 items-stretch">
-          
+
           {/* Card 1: Students (Text Top, Image Bottom) */}
           <FadeUp delay={0.15} className="lg:col-span-1 flex flex-col">
             <div className="group flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] bg-[#F5F5F7] border border-gray-200/50 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] min-h-[480px] relative">
@@ -602,7 +602,7 @@ function Personas() {
                 <p className="mt-3 text-[15px] leading-relaxed text-[#86868B]">
                   Grab lunch from O-Mama between classes. Rent a powerbank before the library. No cash needed.
                 </p>
-                
+
                 <div className="mt-5 space-y-2">
                   <div className="flex items-center gap-2 text-[13.5px] text-[#6E6E73] font-medium">
                     <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 font-bold text-[9px]">✓</span>
@@ -614,12 +614,12 @@ function Personas() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Media Container - FULL BLEED */}
               <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#EAE3DC] mt-auto">
-                <img 
-                  src={assetPath("/student_diorama_new.png")} 
-                  alt="Students" 
+                <img
+                  src={assetPath("/student_diorama_new.png")}
+                  alt="Students"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
@@ -634,9 +634,9 @@ function Personas() {
             <div className="group flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] bg-[#F5F5F7] border border-gray-200/50 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] min-h-[480px] relative">
               {/* Media Container - FULL BLEED AT TOP (Desktop) / BOTTOM (Mobile) */}
               <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E2DFDC] order-2 lg:order-1 mt-auto lg:mt-0">
-                <img 
-                  src={assetPath("/office_diorama_new.png")} 
-                  alt="Professionals" 
+                <img
+                  src={assetPath("/office_diorama_new.png")}
+                  alt="Professionals"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
@@ -655,7 +655,7 @@ function Personas() {
                 <p className="mt-3 text-[15px] leading-relaxed text-[#86868B]">
                   Quick snack from vending during a break. Lock your bag at the gym. Everything from one app.
                 </p>
-                
+
                 <div className="mt-5 space-y-2">
                   <div className="flex items-center gap-2 text-[13.5px] text-[#6E6E73] font-medium">
                     <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 font-bold text-[9px]">✓</span>
@@ -688,7 +688,7 @@ function Personas() {
                 <p className="mt-3 text-[15px] leading-relaxed text-[#86868B]">
                   Locate nearby O-Mama points instantly. Scan and pay safely from a single shared family wallet.
                 </p>
-                
+
                 <div className="mt-5 space-y-2">
                   <div className="flex items-center gap-2 text-[13.5px] text-[#6E6E73] font-medium">
                     <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 font-bold text-[9px]">✓</span>
@@ -700,12 +700,12 @@ function Personas() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Media Container - FULL BLEED */}
               <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#E6DEC9] mt-auto">
-                <img 
-                  src={assetPath("/food_court_diorama_new.png")} 
-                  alt="Families and Food Courts" 
+                <img
+                  src={assetPath("/food_court_diorama_new.png")}
+                  alt="Families and Food Courts"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
@@ -752,7 +752,7 @@ function MachineShowcase() {
   return (
     <section className="bg-white px-6 py-20 md:py-32">
       <div className="mx-auto max-w-7xl">
-        
+
         {/* Header Section */}
         <div className="text-center md:text-left">
           <FadeUp>
@@ -766,13 +766,13 @@ function MachineShowcase() {
             </p>
           </FadeUp>
         </div>
-        
+
         {/* Ultra-Minimal 4-Column Grid */}
         <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {machines.map((m, i) => (
             <FadeUp key={m.name} delay={0.2 + i * 0.1}>
               <div className="group flex flex-col">
-                
+
                 {/* Pure Image - Fixed Aspect Ratio to guarantee identical sizes */}
                 <a
                   href={m.href}
@@ -780,13 +780,13 @@ function MachineShowcase() {
                   rel="noopener noreferrer"
                   className="relative w-full aspect-square overflow-hidden rounded-[24px] transition-transform duration-500 group-hover:-translate-y-2 block"
                 >
-                  <img 
-                    src={m.img} 
-                    alt={m.name} 
-                    className="h-full w-full object-cover" 
+                  <img
+                    src={m.img}
+                    alt={m.name}
+                    className="h-full w-full object-cover"
                   />
                 </a>
-                
+
                 {/* Clean Typography Below */}
                 <div className="mt-6">
                   <h3 className="text-[20px] font-bold text-[#1D1D1F] md:text-[22px]">
@@ -802,7 +802,7 @@ function MachineShowcase() {
                   <p className="mt-2 text-[15px] leading-relaxed text-[#6E6E73]">
                     {m.desc}
                   </p>
-                  <a 
+                  <a
                     href={m.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -811,12 +811,12 @@ function MachineShowcase() {
                     Learn more <ArrowRight size={14} />
                   </a>
                 </div>
-                
+
               </div>
             </FadeUp>
           ))}
         </div>
-        
+
       </div>
     </section>
   );
@@ -861,7 +861,7 @@ function DailyTimeline() {
   return (
     <section className="bg-white px-6 py-20 md:py-32">
       <div className="mx-auto max-w-6xl text-center">
-        
+
         {/* Header */}
         <FadeUp>
           <span className="text-[12px] font-bold uppercase tracking-widest text-[#86868B]">
@@ -881,10 +881,10 @@ function DailyTimeline() {
 
         {/* Timeline Grid Container */}
         <div className="relative mt-20">
-          
+
           {/* Horizontal Connecting Line */}
-          <div 
-            className="absolute left-[12.5%] right-[12.5%] top-[37px] hidden h-[1.5px] bg-[#E8E8ED] lg:block z-0" 
+          <div
+            className="absolute left-[12.5%] right-[12.5%] top-[37px] hidden h-[1.5px] bg-[#E8E8ED] lg:block z-0"
           />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
@@ -895,16 +895,16 @@ function DailyTimeline() {
                   style={{ backgroundColor: c.bg }}
                 >
                   {/* Color Timeline Dot */}
-                  <span 
+                  <span
                     className="absolute top-[32px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full transition-all duration-300 group-hover:scale-125"
-                    style={{ 
+                    style={{
                       backgroundColor: c.dot,
                       boxShadow: `0 0 0 4px ${c.dot}20`
                     }}
                   />
 
                   {/* Time Display */}
-                  <div 
+                  <div
                     className="text-[28px] sm:text-[30px] font-bold tracking-tight"
                     style={{ color: c.text }}
                   >
@@ -943,7 +943,7 @@ function ScanAnimation() {
     <div className="relative w-full h-40 bg-slate-50/50 flex items-center justify-center rounded-2xl overflow-hidden border border-gray-100/60">
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
-      
+
       {/* QR Code Container */}
       <div className="relative w-16 h-16 border border-gray-200 rounded-lg p-1.5 bg-white flex flex-col justify-between shadow-sm">
         <div className="flex justify-between">
@@ -962,7 +962,7 @@ function ScanAnimation() {
       </div>
 
       {/* Floating smartphone frame scanning the QR */}
-      <motion.div 
+      <motion.div
         className="absolute w-28 h-32 border-2 border-emerald-500 rounded-xl bg-white/20 backdrop-blur-[1px] flex flex-col items-center justify-center shadow-lg"
         initial={{ y: 20, opacity: 0.8 }}
         animate={{ y: [20, -10, 20] }}
@@ -975,7 +975,7 @@ function ScanAnimation() {
         <div className="absolute bottom-4 right-4 w-3 h-3 border-b-2 border-r-2 border-emerald-500" />
 
         {/* Scan line */}
-        <motion.div 
+        <motion.div
           className="absolute left-2 right-2 h-[2px] bg-emerald-500 shadow-[0_0_8px_#10B981]"
           animate={{ top: ["20px", "104px", "20px"] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -1005,9 +1005,9 @@ function PayAnimation() {
         </div>
 
         {/* Dynamic button state */}
-        <motion.div 
+        <motion.div
           className="w-full py-1.5 rounded-lg bg-emerald-500 text-white text-[10px] font-bold text-center flex items-center justify-center gap-1 shadow-sm overflow-hidden"
-          animate={{ 
+          animate={{
             backgroundColor: ["#10B981", "#059669", "#10B981"]
           }}
           transition={{ duration: 3, repeat: Infinity }}
@@ -1016,10 +1016,10 @@ function PayAnimation() {
         </motion.div>
 
         {/* Click pointer overlay */}
-        <motion.span 
+        <motion.span
           className="absolute bottom-4 right-8 w-4 h-4 rounded-full bg-emerald-400/30 border border-emerald-500/40 z-20"
           initial={{ scale: 0, opacity: 0 }}
-          animate={{ 
+          animate={{
             scale: [0, 1.6, 0],
             opacity: [0, 1, 0]
           }}
@@ -1027,16 +1027,16 @@ function PayAnimation() {
         />
 
         {/* Success Checkmark Circle */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-white/95 rounded-xl flex flex-col items-center justify-center z-10"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ 
+          animate={{
             opacity: [0, 0, 1, 1, 0],
             scale: [0.9, 0.9, 1, 1, 0.9]
           }}
           transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}
         >
-          <motion.div 
+          <motion.div
             className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white"
             initial={{ scale: 0 }}
             animate={{ scale: [0, 1.2, 1] }}
@@ -1059,14 +1059,14 @@ function GrabAnimation() {
 
       {/* Locker Compartment Frame */}
       <div className="relative w-28 h-28 bg-gray-200 border-4 border-gray-300 rounded-xl flex items-center justify-center overflow-hidden">
-        
+
         {/* Item Inside Locker (e.g. fresh burger box, powerbank) */}
-        <motion.div 
+        <motion.div
           className="w-12 h-12 bg-white rounded-lg border border-gray-100 shadow-md flex items-center justify-center flex-col z-0"
           initial={{ z: -50, scale: 0.8 }}
-          animate={{ 
-            z: [ -50, 0, 0, -50 ],
-            scale: [ 0.8, 1.1, 1.1, 0.8 ]
+          animate={{
+            z: [-50, 0, 0, -50],
+            scale: [0.8, 1.1, 1.1, 0.8]
           }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -1075,10 +1075,10 @@ function GrabAnimation() {
         </motion.div>
 
         {/* Locker Door (swings open) */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-gray-100 border-l border-gray-300/80 rounded-sm z-10 flex flex-col justify-between p-2 shadow-inner [transform-origin:left_center]"
           initial={{ rotateY: 0 }}
-          animate={{ 
+          animate={{
             rotateY: [0, -115, -115, 0]
           }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -1097,10 +1097,10 @@ function GrabAnimation() {
       </div>
 
       {/* Up-pointing hand indicator representing "Grab" */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-1 right-8 text-[22px] z-20 pointer-events-none"
         initial={{ y: 20, opacity: 0 }}
-        animate={{ 
+        animate={{
           y: [20, 2, 2, 20],
           opacity: [0, 1, 1, 0]
         }}
@@ -1114,21 +1114,21 @@ function GrabAnimation() {
 
 function HowItWorks() {
   const steps = [
-    { 
-      n: "01", 
-      title: "Scan", 
+    {
+      n: "01",
+      title: "Scan",
       desc: "Point your camera at any machine's QR code. Tolpar recognizes it instantly.",
       animation: <ScanAnimation />
     },
-    { 
-      n: "02", 
-      title: "Choose & Pay", 
+    {
+      n: "02",
+      title: "Choose & Pay",
       desc: "Browse what's available. Select what you want. Pay from your wallet in one tap.",
       animation: <PayAnimation />
     },
-    { 
-      n: "03", 
-      title: "Grab", 
+    {
+      n: "03",
+      title: "Grab",
       desc: "Collect your meal, grab your charger, open your locker. The machine handles the rest.",
       animation: <GrabAnimation />
     },
@@ -1149,7 +1149,7 @@ function HowItWorks() {
             Three steps. Every machine.
           </p>
         </FadeUp>
-        
+
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           {steps.map((s, i) => (
             <FadeUp key={s.n} delay={i * 0.1}>
@@ -1214,7 +1214,7 @@ function BeforeAfter() {
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white px-6 py-16 md:py-24">
       {/* Background radial glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-50/30 blur-[100px]" />
-      
+
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <FadeUp>
@@ -1238,7 +1238,7 @@ function BeforeAfter() {
             <FadeUp key={c.badge} delay={i * 0.08}>
               <div className="group relative bg-white/60 hover:bg-white rounded-[24px] p-3 md:p-3.5 border border-slate-100 hover:border-emerald-500/20 shadow-[0_2px_10px_rgba(0,0,0,0.005)] hover:shadow-[0_12px_24px_rgba(16,185,129,0.04)] transition-all duration-500">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-3 lg:gap-5">
-                  
+
                   {/* Left: The Old Way (Friction) */}
                   <div className="flex items-center gap-3 bg-[#FAF5F5]/70 rounded-xl p-3 border border-red-500/5 transition-all duration-300 group-hover:opacity-60">
                     <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-500 shadow-inner">
@@ -1282,40 +1282,40 @@ function BeforeAfter() {
 
 function Wallet() {
   const tx = [
-    { 
-      name: "O-Mama Point", 
-      sub: "O-Mama Fridge #04", 
-      date: "May 18, 2:49 PM", 
-      amount: "-৳45.00", 
-      icon: assetPath("/sohub-omama-v2-Cb04jp3t.png") 
+    {
+      name: "O-Mama Point",
+      sub: "O-Mama Fridge #04",
+      date: "May 18, 2:49 PM",
+      amount: "-৳45.00",
+      icon: assetPath("/sohub-omama-v2-Cb04jp3t.png")
     },
-    { 
-      name: "Smart Locker", 
-      sub: "Locker Slot #B-12", 
-      date: "May 17, 11:36 AM", 
-      amount: "-৳15.00", 
-      icon: assetPath("/sohub-locker-v1-Dsl9zKzH.png") 
+    {
+      name: "Smart Locker",
+      sub: "Locker Slot #B-12",
+      date: "May 17, 11:36 AM",
+      amount: "-৳15.00",
+      icon: assetPath("/sohub-locker-v1-Dsl9zKzH.png")
     },
-    { 
-      name: "Powerbank Hub", 
-      sub: "Station #PB-88", 
-      date: "May 14, 3:56 PM", 
-      amount: "-৳20.00", 
-      icon: assetPath("/sohub-power-bank-v1-Bcca8uE6.png") 
+    {
+      name: "Powerbank Hub",
+      sub: "Station #PB-88",
+      date: "May 14, 3:56 PM",
+      amount: "-৳20.00",
+      icon: assetPath("/sohub-power-bank-v1-Bcca8uE6.png")
     },
-    { 
-      name: "bKash Topup", 
-      sub: "Ref: #983201", 
-      date: "May 13, 4:26 PM", 
-      amount: "+৳200.00", 
-      icon: "topup" 
+    {
+      name: "bKash Topup",
+      sub: "Ref: #983201",
+      date: "May 13, 4:26 PM",
+      amount: "+৳200.00",
+      icon: "topup"
     },
   ];
 
   return (
     <section className="bg-[#F5F5F7] px-6 py-20 md:py-32">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        
+
         {/* Left Info Column */}
         <div>
           <FadeUp>
@@ -1376,11 +1376,11 @@ function Wallet() {
             </div>
           </FadeUp>
         </div>
-        
+
         {/* Right Phone Mockup Column */}
         <FadeUp delay={0.2}>
           <div className="relative mx-auto w-full max-w-[250px] aspect-[9/19.5] rounded-[36px] border-[3.5px] border-[#1A1A1C] bg-[#1A1A1C] p-[3.5px] shadow-[0_25px_60px_rgba(0,0,0,0.15)] ring-1 ring-white/10 overflow-hidden">
-            
+
             {/* Speaker Grill */}
             <div className="absolute top-[1.5px] left-1/2 -translate-x-1/2 w-10 h-[1px] bg-black rounded-full z-30 opacity-60" />
 
@@ -1388,7 +1388,7 @@ function Wallet() {
             <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3 bg-black rounded-full z-30 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.2)]" />
 
             <div className="relative flex h-full w-full flex-col bg-white rounded-[28px] overflow-hidden p-3.5 pt-6">
-              
+
               {/* iPhone Status Bar */}
               <div className="flex justify-between items-center px-1.5 pt-0.5 pb-2 text-[9px] font-bold text-slate-800 z-20 select-none">
                 <span>9:41</span>
@@ -1400,7 +1400,7 @@ function Wallet() {
                     <span className="w-[1.2px] h-[6.5px] bg-slate-800 rounded-full" />
                   </span>
                   <svg className="w-2.2 h-2.2 fill-current text-slate-800" viewBox="0 0 16 16">
-                    <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3 12.44 12.44 0 0 0 .663 5.379a.485.485 0 0 0-.048.736l.518.518a.49.49 0 0 0 .707 0 10.941 10.941 0 0 1 13.32 0 .49.49 0 0 0 .707 0l.518-.518z"/>
+                    <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3 12.44 12.44 0 0 0 .663 5.379a.485.485 0 0 0-.048.736l.518.518a.49.49 0 0 0 .707 0 10.941 10.941 0 0 1 13.32 0 .49.49 0 0 0 .707 0l.518-.518z" />
                   </svg>
                   <div className="w-3.2 h-1.8 border border-slate-800 rounded-[2px] p-[0.5px] flex items-center">
                     <div className="w-1.8 h-0.8 bg-slate-800 rounded-[0.5px]" />
@@ -1412,7 +1412,7 @@ function Wallet() {
               <div className="relative overflow-hidden rounded-[16px] bg-[#00B050] p-3 text-white shadow-sm mt-1">
                 <div className="absolute -right-4 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-white/10 pointer-events-none" />
                 <div className="absolute -left-4 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-white/5 pointer-events-none" />
-                
+
                 <div className="relative z-10 flex items-center justify-between">
                   <div>
                     <div className="flex items-center gap-1 text-[9.5px] font-semibold text-white/95">
@@ -1471,7 +1471,7 @@ function Wallet() {
             </div>
           </div>
         </FadeUp>
-        
+
       </div>
     </section>
   );
@@ -1649,7 +1649,7 @@ function QualityGrid() {
 
                 <h3 className="mt-6 text-[17px] font-extrabold text-slate-900 tracking-tight">{c.title}</h3>
                 <p className="mt-2.5 text-[13px] leading-relaxed text-slate-500 font-medium">{c.desc}</p>
-                
+
                 {/* Interactive link indicator */}
                 <div className="mt-6 flex items-center gap-1.5 text-[11px] font-bold text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span>Learn more</span>
@@ -1751,21 +1751,19 @@ function FoundersNote() {
               <div className="inline-flex items-center gap-0.5 bg-slate-100 p-0.5 rounded-full text-xs font-semibold">
                 <button
                   onClick={() => setLang("en")}
-                  className={`px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                    lang === "en"
-                      ? "bg-white text-slate-900 shadow-sm"
-                      : "text-slate-500 hover:text-slate-800"
-                  }`}
+                  className={`px-3.5 py-1.5 rounded-full transition-all duration-300 ${lang === "en"
+                    ? "bg-white text-slate-900 shadow-sm"
+                    : "text-slate-500 hover:text-slate-800"
+                    }`}
                 >
                   English
                 </button>
                 <button
                   onClick={() => setLang("bn")}
-                  className={`px-3.5 py-1.5 rounded-full transition-all duration-300 ${
-                    lang === "bn"
-                      ? "bg-white text-slate-900 shadow-sm"
-                      : "text-slate-500 hover:text-slate-800"
-                  }`}
+                  className={`px-3.5 py-1.5 rounded-full transition-all duration-300 ${lang === "bn"
+                    ? "bg-white text-slate-900 shadow-sm"
+                    : "text-slate-500 hover:text-slate-800"
+                    }`}
                 >
                   বাংলা
                 </button>
@@ -1821,7 +1819,7 @@ function FoundersNote() {
                     <span className="text-slate-950 font-bold">That's why we built Tolpar.</span>
                   </p>
                   <p>
-                    Not as a luxury for a few, but as a practical, self-service network designed for real busy people, 
+                    Not as a luxury for a few, but as a practical, self-service network designed for real busy people,
                     real workspaces, universities, and real everyday life in Bangladesh.
                   </p>
                 </>
@@ -1832,7 +1830,7 @@ function FoundersNote() {
                     <span className="text-slate-950 font-bold">ঠিক এই উদ্দেশ্যেই আমরা তৈরি করেছি টোলপার (Tolpar)।</span>
                   </p>
                   <p>
-                    এটি কোনো বিলাসিতা নয়, বরং বাংলাদেশীদের কর্মব্যস্ত দিনগুলোকে সহজ করতে ফুড পয়েন্ট, ভেন্ডিং মেশিন, 
+                    এটি কোনো বিলাসিতা নয়, বরং বাংলাদেশীদের কর্মব্যস্ত দিনগুলোকে সহজ করতে ফুড পয়েন্ট, ভেন্ডিং মেশিন,
                     পাওয়ার ব্যাংক স্টেশন এবং স্মার্ট লকারের এক সমন্বিত সেলফ-সার্ভিস নেটওয়ার্ক।
                   </p>
                 </>
@@ -1901,7 +1899,7 @@ function FAQ() {
   const items = [
     {
       q: "What is Tolpar?",
-      a: "Tolpar is a mobile app by SOHUB that lets you interact with smart machines like food points, vending machines, powerbank stations, and smart lockers, all from your phone.",
+      a: "Tolpar is a mobile app by SOHUB that lets you interact with smart machines like O MAMA points, vending machines, powerbank stations, and smart lockers, all from your phone.",
     },
     {
       q: "How do I pay?",
@@ -1909,7 +1907,7 @@ function FAQ() {
     },
     {
       q: "What is the refund policy for my wallet balance?",
-      a: "Yes, if you have an unused wallet balance and wish to request a refund, you can easily do so by contacting our support team in the app. The refunded amount will be processed back to your original payment method (bKash or Cards/Online Banking) within 3-5 business days.",
+      a: "Refunds are only applicable in cases of verified technical or transaction issues, such as a successful payment where the wallet balance was not properly added due to a system or internet-related problem. In such cases, users must contact our support team with valid transaction proof for verification. Please note that unused or partially used wallet balances are non-refundable, and refund requests after a successful wallet top-up will not be accepted. If approved after verification, the refund amount will be returned to the original payment method within 3-5 business days.",
     },
     {
       q: "Where are the machines?",
@@ -1917,7 +1915,7 @@ function FAQ() {
     },
     {
       q: "Is it free to download?",
-      a: "Yes, Tolpar is completely free to download on Android. You only pay for services you use.",
+      a: "Yes, Tolpar is completely free to download on Android.",
     },
     {
       q: "What if I need help?",
@@ -1926,45 +1924,84 @@ function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="bg-white px-6 py-20 md:py-32">
-      <div className="mx-auto max-w-3xl">
-        <FadeUp>
-          <h2 className="text-center text-[clamp(26px,3.5vw,40px)] font-bold tracking-tight text-[#1D1D1F]">
-            Common questions
-          </h2>
-        </FadeUp>
-        <div className="mt-12">
-          {items.map((it, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={it.q} className="cursor-pointer border-b border-gray-100 py-5">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between text-left"
-                >
-                  <span className="text-[16px] font-semibold text-[#1D1D1F]">{it.q}</span>
-                  {isOpen ? (
-                    <Minus size={18} className="shrink-0 text-emerald-500" />
-                  ) : (
-                    <Plus size={18} className="shrink-0 text-[#86868B]" />
-                  )}
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease }}
-                      className="overflow-hidden"
-                    >
-                      <p className="mt-3 text-[14px] leading-relaxed text-[#6E6E73]">{it.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+    <section id="faq" className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50/50 px-6 py-24 md:py-36">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Sticky Content */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 h-fit">
+            <FadeUp>
+              <div className="inline-block rounded-full border border-emerald-500/10 bg-emerald-50/50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-600">
+                FAQ
               </div>
-            );
-          })}
+              <h2 className="mt-4 text-[clamp(28px,3.5vw,40px)] font-extrabold tracking-tight text-slate-900 leading-tight">
+                Common questions
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-slate-500 font-medium">
+                Have questions about how Tolpar works? Find answers about payments, machines, refunds, and getting support.
+              </p>
+
+              {/* Supportive Help Widget */}
+              <div className="mt-8 rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.015)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600">
+                  <HeartHandshake size={20} />
+                </div>
+                <h4 className="mt-4 text-[15px] font-bold text-slate-900">Still need help?</h4>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-500 font-medium">
+                  Our dedicated support team is available directly inside the app. Open Tolpar and tap the Support tab anytime.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* Right Accordion Grid */}
+          <div className="space-y-4 lg:col-span-7">
+            {items.map((it, i) => {
+              const isOpen = open === i;
+              return (
+                <FadeUp key={it.q} delay={i * 0.05}>
+                  <div
+                    className={`group overflow-hidden rounded-2xl border bg-white transition-all duration-300 ${isOpen
+                      ? "border-emerald-500/30 ring-1 ring-emerald-500/10 shadow-[0_12px_30px_rgba(16,185,129,0.04)]"
+                      : "border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:border-slate-200 hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)]"
+                      }`}
+                  >
+                    <button
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors"
+                    >
+                      <span className={`text-[15.5px] font-bold tracking-tight transition-colors duration-200 ${isOpen ? "text-emerald-600" : "text-slate-900 group-hover:text-emerald-500"
+                        }`}>
+                        {it.q}
+                      </span>
+                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen ? "bg-emerald-500 text-white" : "bg-slate-50 text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-500"
+                        }`}>
+                        {isOpen ? (
+                          <Minus size={15} strokeWidth={2.5} />
+                        ) : (
+                          <Plus size={15} strokeWidth={2.5} />
+                        )}
+                      </span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease }}
+                          className="overflow-hidden"
+                        >
+                          <div className="border-t border-slate-100 px-6 pb-5 pt-4">
+                            <p className="text-[14px] leading-relaxed text-slate-500 font-medium">{it.a}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </FadeUp>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -1980,7 +2017,7 @@ function FinalCTAFooter() {
 
         {/* Modern glowing background effect */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/15 blur-[100px]" />
-        
+
         <div className="mx-auto max-w-3xl text-center relative z-10">
           <FadeUp>
             <h2 className="mx-auto max-w-2xl text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.1] tracking-tight text-white">
@@ -2002,7 +2039,7 @@ function FinalCTAFooter() {
                   Upcoming
                 </span>
                 <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 fill-current">
-                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z"/>
+                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z" />
                 </svg>
                 <div className="flex flex-col select-none">
                   <span className="text-[9px] uppercase font-bold tracking-wider text-white/35 text-left leading-none">Download on the</span>
