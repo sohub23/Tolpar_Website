@@ -15,7 +15,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>SOHUB - Solution Hub Technologies | Begin Different. Win Different.</title>
   <meta name="description"
-    content="SOHUB is a technology ecosystem built for Bangladesh. We build disciplined systems that raise standards. Not hype — working solutions measured by results." />
+    content="SOHUB is a technology ecosystem built for Bangladesh. We build disciplined systems that raise standards. Not hype - working solutions measured by results." />
   <meta name="author" content="SOHUB" />
 
   <!-- Load Google Fonts -->
@@ -99,7 +99,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "What is SOHUB?", "acceptedAnswer": { "@type": "Answer", "text": "SOHUB (Solution Hub Technologies) is a technology ecosystem built for Bangladesh. We build disciplined systems across smart home automation, AI vision, machine infrastructure, HR software, and more." } },
-      { "@type": "Question", "name": "Which is the best technology company in Bangladesh for smart home automation?", "acceptedAnswer": { "@type": "Answer", "text": "SOHUB is Bangladesh's leading smart home technology company. Smart home devices from BDT 1,290, room packages from BDT 3,500. Zero monthly fees. 100% retrofit — no rewiring required. Serves Dhaka and major cities." } },
+      { "@type": "Question", "name": "Which is the best technology company in Bangladesh for smart home automation?", "acceptedAnswer": { "@type": "Answer", "text": "SOHUB is Bangladesh's leading smart home technology company. Smart home devices from BDT 1,290, room packages from BDT 3,500. Zero monthly fees. 100% retrofit, requiring no rewiring. Serves Dhaka and major cities." } },
       { "@type": "Question", "name": "বাংলাদেশে সেরা স্মার্ট হোম কোম্পানি কোনটি?", "acceptedAnswer": { "@type": "Answer", "text": "SOHUB বাংলাদেশের সেরা স্মার্ট হোম কোম্পানি। ডিভাইস শুরু হয় ১,২৯০ টাকা থেকে, রুম প্যাকেজ ৩,৫০০ টাকা থেকে। কোনো মাসিক চার্জ নেই। দেয়াল না ভেঙেই ইনস্টল হয়।" } },
       { "@type": "Question", "name": "Where is SOHUB based?", "acceptedAnswer": { "@type": "Answer", "text": "SOHUB is headquartered in Dhaka, Bangladesh, and serves businesses and individuals across the country." } },
       { "@type": "Question", "name": "What products does SOHUB offer?", "acceptedAnswer": { "@type": "Answer", "text": "SOHUB offers smart home automation (SOHUB Home), AI vision systems (SOHUB AI Vision), machine infrastructure (vending, lockers, power banks), HR software (EMP), building management (SOHUB Control), and connectivity solutions (SOHUB Connect)." } },

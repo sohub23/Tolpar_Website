@@ -40,13 +40,13 @@ const ease = [0.25, 0.1, 0.25, 1] as const;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tolpar — A smarter way to interact with the world around you" },
+      { title: "Tolpar - A smarter way to interact with the world around you" },
       {
         name: "description",
         content:
-          "Tolpar connects you to smart machines everywhere — food points, vending, powerbank stations, and lockers. Scan, pay, and go.",
+          "Tolpar connects you to smart machines everywhere, including food points, vending, powerbank stations, and lockers. Scan, pay, and go.",
       },
-      { property: "og:title", content: "Tolpar — by SOHUB" },
+      { property: "og:title", content: "Tolpar - by SOHUB" },
       {
         property: "og:description",
         content: "One app for every smart machine around you.",
@@ -1901,11 +1901,15 @@ function FAQ() {
   const items = [
     {
       q: "What is Tolpar?",
-      a: "Tolpar is a mobile app by SOHUB that lets you interact with smart machines — food points, vending machines, powerbank stations, and smart lockers — all from your phone.",
+      a: "Tolpar is a mobile app by SOHUB that lets you interact with smart machines like food points, vending machines, powerbank stations, and smart lockers, all from your phone.",
     },
     {
       q: "How do I pay?",
-      a: "Tolpar has a built-in wallet. Top up via bKash or SSL Commerz, then pay for any service with a single tap.",
+      a: "Tolpar has a built-in wallet. Top up via bKash or Cards/Online Banking (VISA, MasterCard & more), then pay for any service with a single tap.",
+    },
+    {
+      q: "What is the refund policy for my wallet balance?",
+      a: "Yes, if you have an unused wallet balance and wish to request a refund, you can easily do so by contacting our support team in the app. The refunded amount will be processed back to your original payment method (bKash or Cards/Online Banking) within 3-5 business days.",
     },
     {
       q: "Where are the machines?",
@@ -1913,7 +1917,7 @@ function FAQ() {
     },
     {
       q: "Is it free to download?",
-      a: "Yes, Tolpar is completely free to download on iOS and Android. You only pay for services you use.",
+      a: "Yes, Tolpar is completely free to download on Android. You only pay for services you use.",
     },
     {
       q: "What if I need help?",

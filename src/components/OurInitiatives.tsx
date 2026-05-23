@@ -28,7 +28,7 @@ const DesktopOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =
           </p>
         </div>
 
-        {/* Grid — 4 columns */}
+        {/* Grid - 4 columns */}
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {initiatives.map((item) => {
             const isCurrent = item.id === CURRENT_SITE_ID;
@@ -97,7 +97,7 @@ const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =>
           </p>
         </div>
 
-        {/* Grid — 2 columns */}
+        {/* Grid - 2 columns */}
         <div className="grid grid-cols-2 gap-2">
           {initiatives.map((item) => {
             const isCurrent = item.id === CURRENT_SITE_ID;
