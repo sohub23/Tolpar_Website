@@ -18,16 +18,6 @@ const DesktopOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =
   return (
     <section id="initiatives" className="py-20 bg-[#f8f9fa] relative overflow-hidden">
       <div className="mx-auto max-w-6xl relative z-10 px-6">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-[clamp(32px,5vw,48px)] font-bold tracking-tight text-[#1D1D1F]">
-            Explore Our Initiatives
-          </h2>
-          <p className="mt-4 text-[#86868B] text-lg font-medium">
-            Each initiative solves a real problem.
-          </p>
-        </div>
-
         {/* Grid - 4 columns */}
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {initiatives.map((item) => {
@@ -87,16 +77,6 @@ const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =>
   return (
     <section id="initiatives" className="py-10 bg-[#f8f9fa]">
       <div className="px-4">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Explore Our Initiatives
-          </h2>
-          <p className="mt-2 text-gray-500 text-sm">
-            Each initiative solves a real problem.
-          </p>
-        </div>
-
         {/* Grid - 2 columns */}
         <div className="grid grid-cols-2 gap-2">
           {initiatives.map((item) => {

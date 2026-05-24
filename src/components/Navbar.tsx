@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { assetPath } from "@/lib/asset-path";
+import { Link, useLocation } from "@tanstack/react-router";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,9 +22,9 @@ interface Initiative {
 }
 
 const links = [
-  { href: "#features", label: "Features" },
-  { href: "#how", label: "How It Works" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#features", anchor: "features", label: "Features" },
+  { href: "/#how", anchor: "how", label: "How It Works" },
+  { href: "/#faq", anchor: "faq", label: "FAQ" },
 ];
 
 export function Navbar() {
@@ -32,10 +33,13 @@ export function Navbar() {
   const [activeTab, setActiveTab] = useState("#top");
   const [initiatives, setInitiatives] = useState<Initiative[]>([]);
   const [initiativesOpen, setInitiativesOpen] = useState(false);
+  
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const allLinks = [
-    { href: "#top", label: "Overview" },
-    ...links
+    { href: isHomePage ? "#top" : "/#top", anchor: "top", label: "Overview" },
+    ...links.map(l => ({ ...l, href: isHomePage ? `#${l.anchor}` : l.href }))
   ];
 
   // Fetch initiatives from SOHUB API
@@ -56,6 +60,11 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!isHomePage) {
+      setActiveTab("");
+      return;
+    }
+
     let ticking = false;
 
     const handleScroll = () => {
@@ -97,7 +106,7 @@ export function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isHomePage]);
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50">
@@ -188,19 +197,19 @@ export function Navbar() {
         <div className={`flex w-full max-w-6xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100' : 'bg-transparent'}`}>
           
           {/* Logo */}
-          <a href="#top" className="flex items-center gap-2" onClick={() => setActiveTab("#top")}>
+          <Link to="/" className="flex items-center gap-2" onClick={() => isHomePage && setActiveTab("#top")}>
             <img src={assetPath("/tolpar_logo.png")} alt="Tolpar" className="h-11 md:h-12 w-auto object-contain" />
-          </a>
+          </Link>
 
           {/* Desktop Links - Center Pill */}
           <div className="hidden items-center rounded-full bg-gray-50/80 p-1 md:flex border border-gray-100">
             {allLinks.map((l) => {
-              const isActive = activeTab === l.href;
+              const isActive = isHomePage && activeTab === `#${l.anchor}`;
               return (
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setActiveTab(l.href)}
+                  onClick={() => isHomePage && setActiveTab(`#${l.anchor}`)}
                   className={`relative px-5 py-2 text-[13px] font-medium transition-colors ${
                     isActive ? "text-emerald-700" : "text-gray-500 hover:text-gray-900"
                   }`}
@@ -216,13 +225,28 @@ export function Navbar() {
                 </a>
               );
             })}
+            <Link
+              to="/contact"
+              className={`relative px-5 py-2 text-[13px] font-medium transition-colors ${
+                location.pathname === "/contact" ? "text-emerald-700" : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
+              {location.pathname === "/contact" && (
+                <motion.div
+                  layoutId="active-nav-pill"
+                  className="absolute inset-0 rounded-full bg-emerald-100/50"
+                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">Contact</span>
+            </Link>
           </div>
 
           {/* Right Actions */}
           <div className="hidden items-center gap-4 md:flex">
             <div className="flex items-center ml-2">
               <a
-                href="#download"
+                href={isHomePage ? "#download" : "/#download"}
                 className="rounded-full bg-emerald-500 px-6 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5"
               >
                 Download App
@@ -254,9 +278,16 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className={`text-sm font-medium ${location.pathname === '/contact' ? 'text-emerald-600' : 'text-gray-900'}`}
+              >
+                Contact
+              </Link>
               <div className="mt-4 flex flex-col gap-2 border-t border-gray-100 pt-4">
                 <a
-                  href="#download"
+                  href={isHomePage ? "#download" : "/#download"}
                   onClick={() => setOpen(false)}
                   className="rounded-full bg-emerald-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-md"
                 >

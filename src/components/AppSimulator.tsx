@@ -292,7 +292,7 @@ export function AppSimulator() {
                         </>
                       )}
                       
-                      {(currentScreen !== "HOME" && currentScreen !== "SCANNING") && (
+                      {((currentScreen as Screen) !== "HOME" && (currentScreen as Screen) !== "SCANNING") && (
                         <>
                           {/* Back Button hotspot */}
                           <div 
