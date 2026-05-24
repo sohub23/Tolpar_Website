@@ -171,13 +171,6 @@ function Hero() {
                 </div>
               </a>
             </div>
-
-            <a
-              href="#how"
-              className="flex w-full max-w-[200px] sm:max-w-none sm:w-auto items-center justify-center rounded-[16px] border border-gray-200 bg-white px-6 py-3 text-[14px] font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-50 hover:shadow-md hover:-translate-y-0.5"
-            >
-              See How It Works
-            </a>
           </div>
         </FadeUp>
 
