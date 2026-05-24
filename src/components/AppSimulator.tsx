@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { QrCode, Sparkles, ChevronRight, CheckCircle2, ScanLine, Smartphone } from "lucide-react";
+import { assetPath } from "@/lib/asset-path";
 
 type Flow = "NONE" | "OMAMA" | "VENDING" | "POWERBANK" | "LOCKER";
 type Screen = "HOME" | "SELECT_MACHINE" | "POWERBANK_DETAILS" | "LOCKER_DETAILS" | "SCANNING" | "OMAMA_SUCCESS" | "VENDING_SUCCESS" | "POWERBANK_SUCCESS" | "LOCKER_SUCCESS";
@@ -12,14 +13,14 @@ export function AppSimulator() {
   const [currentBanner, setCurrentBanner] = useState(0);
 
   const banners = [
-    "/banner1.jpg",
-    "/banner2.jpg",
-    "/banner3.jpg",
-    "/banner4.jpg",
-    "/banner5.jpg",
-    "/banner6.jpg",
-    "/banner7.jpg",
-    "/banner8.jpg"
+    assetPath("/banner1.jpg"),
+    assetPath("/banner2.jpg"),
+    assetPath("/banner3.jpg"),
+    assetPath("/banner4.jpg"),
+    assetPath("/banner5.jpg"),
+    assetPath("/banner6.jpg"),
+    assetPath("/banner7.jpg"),
+    assetPath("/banner8.jpg"),
   ];
 
   useEffect(() => {
@@ -58,14 +59,14 @@ export function AppSimulator() {
 
   const getScreenImage = () => {
     switch(currentScreen) {
-      case "HOME": return "/sim_home.png";
-      case "SELECT_MACHINE": return "/sim_select_machine.png";
-      case "POWERBANK_DETAILS": return "/sim_powerbank_details.png";
-      case "LOCKER_DETAILS": return "/sim_locker_details.png";
-      case "OMAMA_SUCCESS": return "/sim_omama_success.png";
-      case "VENDING_SUCCESS": return "/sim_vending_success.png";
-      case "POWERBANK_SUCCESS": return "/sim_powerbank_success.png";
-      case "LOCKER_SUCCESS": return "/sim_locker_success.png";
+      case "HOME": return assetPath("/sim_home.png");
+      case "SELECT_MACHINE": return assetPath("/sim_select_machine.png");
+      case "POWERBANK_DETAILS": return assetPath("/sim_powerbank_details.png");
+      case "LOCKER_DETAILS": return assetPath("/sim_locker_details.png");
+      case "OMAMA_SUCCESS": return assetPath("/sim_omama_success.png");
+      case "VENDING_SUCCESS": return assetPath("/sim_vending_success.png");
+      case "POWERBANK_SUCCESS": return assetPath("/sim_powerbank_success.png");
+      case "LOCKER_SUCCESS": return assetPath("/sim_locker_success.png");
       default: return "";
     }
   };
