@@ -34,6 +34,7 @@ import { Navbar } from "@/components/Navbar";
 import { OurInitiatives } from "@/components/OurInitiatives";
 import HeroWave from "@/components/ui/dynamic-wave-canvas-background";
 import { assetPath } from "@/lib/asset-path";
+import { AppSimulator } from "@/components/AppSimulator";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
@@ -1915,7 +1916,7 @@ function FAQ() {
     },
     {
       q: "Is it free to download?",
-      a: "Yes, Tolpar is completely free to download on Android.",
+      a: "Yes, Tolpar is completely free to download on Android and iOS.",
     },
     {
       q: "What if I need help?",
@@ -2026,26 +2027,25 @@ function FinalCTAFooter() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <p className="mt-6 text-[16px] text-white/50 font-medium tracking-wide">Available on Android. iOS coming soon.</p>
+            <p className="mt-6 text-[16px] text-white/50 font-medium tracking-wide">Available on Android and iOS.</p>
           </FadeUp>
           <FadeUp delay={0.2}>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-4.5">
-              {/* App Store upcoming state */}
-              <div
-                aria-disabled="true"
-                className="relative flex w-full max-w-[240px] cursor-not-allowed items-center justify-center gap-3 rounded-[16px] border border-white/10 bg-white/10 px-7 py-3 text-left text-white/45 opacity-80 sm:w-auto sm:max-w-none"
+              {/* App Store Button */}
+              <a
+                href="https://apps.apple.com/app/tolpar/id6768960889"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-full max-w-[240px] sm:max-w-none sm:w-auto items-center justify-center gap-3 rounded-[16px] bg-[#121212] border border-white/10 text-white px-7 py-3 text-left transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-white/20 hover:shadow-[0_12px_30px_rgba(0,198,255,0.08)]"
               >
-                <span className="absolute -top-2.5 right-3 rounded-full border border-emerald-400/20 bg-emerald-400/15 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-200">
-                  Upcoming
-                </span>
-                <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 fill-current">
+                <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 fill-current transition-transform group-hover:scale-110 duration-300">
                   <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z" />
                 </svg>
                 <div className="flex flex-col select-none">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-white/35 text-left leading-none">Download on the</span>
+                  <span className="text-[9px] uppercase font-bold tracking-wider text-white/45 text-left leading-none group-hover:text-white/60 transition-colors">Download on the</span>
                   <span className="text-[16px] font-bold font-sans leading-tight mt-0.5">App Store</span>
                 </div>
-              </div>
+              </a>
 
               {/* Google Play Button with original colored Play Store logo */}
               <a
@@ -2174,6 +2174,7 @@ export function TolparLanding() {
         <MachineShowcase />
         {/* <DailyTimeline /> */}
         <HowItWorks />
+        <AppSimulator />
         {/* <BeforeAfter /> */}
         <Wallet />
         {/* <QualityGrid /> */}
