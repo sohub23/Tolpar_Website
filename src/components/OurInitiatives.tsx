@@ -55,7 +55,7 @@ const DesktopOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =
               <div key={item.id}>
                 {isCurrent ? (
                   <a
-                    href="/"
+                    href={item.href || "#"}
                     className="group flex items-center gap-4 bg-white border border-[#e8eaed] rounded-2xl px-6 py-5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:border-emerald-500/30 transition-all duration-200 cursor-pointer h-full"
                   >
                     {CardContent}
@@ -119,7 +119,7 @@ const MobileOurInitiatives = ({ initiatives }: { initiatives: Initiative[] }) =>
             return isCurrent ? (
               <a
                 key={item.id}
-                href="/"
+                href={item.href || "#"}
                 className="block bg-white border border-[#e8eaed] rounded-2xl active:bg-gray-50 transition-colors"
               >
                 {CardContent}

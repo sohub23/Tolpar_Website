@@ -145,16 +145,47 @@ function Hero() {
         </FadeUp>
 
         <FadeUp delay={0.3}>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="#download"
-              className="flex items-center justify-center rounded-full bg-emerald-500 px-8 py-4 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5"
-            >
-              Download App
-            </a>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="flex flex-row items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto px-4 sm:px-0">
+              {/* App Store Button */}
+              <a
+                href="https://apps.apple.com/app/tolpar/id6768960889"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-1 sm:flex-none items-center justify-center gap-2 sm:gap-3 rounded-[16px] bg-[#121212] border border-[#2a2a2a] text-white px-3 sm:px-6 py-2.5 transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-emerald-500/30 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)]"
+              >
+                <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-5.5 sm:h-5.5 shrink-0 fill-current transition-transform group-hover:scale-110 duration-300">
+                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z" />
+                </svg>
+                <div className="flex flex-col select-none">
+                  <span className="text-[7px] sm:text-[8px] uppercase font-bold tracking-wider text-white/45 text-left leading-none group-hover:text-white/60 transition-colors">Download on the</span>
+                  <span className="text-[12px] sm:text-[14px] font-bold font-sans leading-tight mt-0.5">App Store</span>
+                </div>
+              </a>
+
+              {/* Google Play Button */}
+              <a
+                href="https://play.google.com/store/apps/details?id=com.tolpar.sohub&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-1 sm:flex-none items-center justify-center gap-2 sm:gap-3 rounded-[16px] bg-[#121212] border border-[#2a2a2a] text-white px-3 sm:px-6 py-2.5 transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-emerald-500/30 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)]"
+              >
+                <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 transition-transform group-hover:scale-110 duration-300">
+                  <path fill="#EA4335" d="M17.52 14.37L13.9 10.75L2.1 22.55C2.94 23.44 4.3 23.53 5.37 22.92L17.52 14.37Z" />
+                  <path fill="#4285F4" d="M2.1 1.45V22.55L13.9 10.75L2.1 1.45Z" />
+                  <path fill="#FBBC04" d="M17.52 14.37L22.62 11.45C23.69 10.84 23.69 9.16 22.62 8.55L17.52 5.63L13.9 10.75L17.52 14.37Z" />
+                  <path fill="#34A853" d="M2.1 1.45C2.1 1.05 2.55 0.77 2.92 0.98L17.52 5.63L13.9 10.75L2.1 1.45Z" />
+                </svg>
+                <div className="flex flex-col select-none">
+                  <span className="text-[7px] sm:text-[8px] uppercase font-bold tracking-wider text-white/45 text-left leading-none group-hover:text-white/60 transition-colors">GET IT ON</span>
+                  <span className="text-[12px] sm:text-[14px] font-bold font-sans leading-tight mt-0.5">Google Play</span>
+                </div>
+              </a>
+            </div>
+
             <a
               href="#how"
-              className="flex items-center justify-center rounded-full border border-gray-200 bg-white px-8 py-4 text-[15px] font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-50 hover:shadow-md hover:-translate-y-0.5"
+              className="flex w-full max-w-[200px] sm:max-w-none sm:w-auto items-center justify-center rounded-[16px] border border-gray-200 bg-white px-6 py-3 text-[14px] font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-50 hover:shadow-md hover:-translate-y-0.5"
             >
               See How It Works
             </a>
