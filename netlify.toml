@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build -- --config vite.static-tolpar.config.ts"
+  publish = "dist-tolpar-static"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

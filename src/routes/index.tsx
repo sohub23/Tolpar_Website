@@ -23,25 +23,6 @@ import { AppSimulator } from "@/components/AppSimulator";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Tolpar - A smarter way to interact with the world around you" },
-      {
-        name: "description",
-        content:
-          "Tolpar connects you to smart machines everywhere, including O MAMA points, vending, powerbank stations, and lockers. Scan, pay, and go.",
-      },
-      { property: "og:title", content: "Tolpar - by SOHUB" },
-      {
-        property: "og:description",
-        content: "One app for every smart machine around you.",
-      },
-    ],
-  }),
-  component: TolparLanding,
-});
-
 // ============ Reusable bits ============
 
 function FadeUp({
@@ -1460,3 +1441,22 @@ export function TolparLanding() {
     </div>
   );
 }
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Tolpar - A smarter way to interact with the world around you" },
+      {
+        name: "description",
+        content:
+          "Tolpar connects you to smart machines everywhere, including O MAMA points, vending, powerbank stations, and lockers. Scan, pay, and go.",
+      },
+      { property: "og:title", content: "Tolpar - by SOHUB" },
+      {
+        property: "og:description",
+        content: "One app for every smart machine around you.",
+      },
+    ],
+  }),
+  component: TolparLanding,
+});
