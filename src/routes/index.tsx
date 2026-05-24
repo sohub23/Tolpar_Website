@@ -98,17 +98,6 @@ function Hero() {
       className="relative z-10 flex min-h-screen w-full flex-col items-center justify-start pt-40"
     >
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 text-center">
-        <FadeUp>
-          <div className="inline-flex items-center gap-3 rounded-full border border-gray-100 bg-white/70 backdrop-blur-md p-1 pr-4 shadow-sm transition-transform hover:scale-105">
-            <span className="rounded-full bg-[#FB8A09] px-4 py-1.5 text-[12px] font-bold tracking-wide text-white shadow-sm">
-              SOHUB
-            </span>
-            <span className="text-[13.5px] font-semibold text-gray-700">
-              Solution Hub Technologies
-            </span>
-          </div>
-        </FadeUp>
-
         <FadeUp delay={0.1}>
           <h1 className="mt-8 text-[clamp(44px,6vw,72px)] font-extrabold leading-[1.1] tracking-tight text-gray-900">
             Your Everyday <br className="hidden sm:block" />
@@ -2196,18 +2185,18 @@ export function TolparLanding() {
             <HeroWave />
           </div>
           <Hero />
-          <TrustGrid />
+          {/* <TrustGrid /> */}
         </div>
-        <LifeMoving />
+        {/* <LifeMoving /> */}
         {/* <VideoGallery /> */}
         <DailyCompanion />
         <Personas />
         <MachineShowcase />
         {/* <DailyTimeline /> */}
-        <HowItWorks />
+        {/* <HowItWorks /> */}
         <AppSimulator />
         {/* <BeforeAfter /> */}
-        <Wallet />
+        {/* <Wallet /> */}
         {/* <QualityGrid /> */}
         {/* <Ecosystem /> */}
         {/* <FoundersNote /> */}
