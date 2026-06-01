@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { assetPath } from "@/lib/asset-path";
-import { Link, useLocation } from "@tanstack/react-router";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,10 +21,28 @@ interface Initiative {
 }
 
 const links = [
-  { href: "/#features", anchor: "features", label: "Features" },
-  { href: "/#how", anchor: "how", label: "How It Works" },
-  { href: "/#faq", anchor: "faq", label: "FAQ" },
+  { anchor: "features", label: "Features" },
+  { anchor: "how", label: "How It Works" },
+  { anchor: "faq", label: "FAQ" },
 ];
+
+const basePath = import.meta.env.BASE_URL || "/";
+const normalizedBasePath = normalizePath(basePath);
+const homeHref = withBasePath("");
+const contactHref = withBasePath("contact");
+
+function withBasePath(path: string) {
+  const base = basePath.endsWith("/") ? basePath : `${basePath}/`;
+  return `${base}${path.replace(/^\/+/, "")}`;
+}
+
+function normalizePath(path: string) {
+  return path.replace(/\/+$/, "") || "/";
+}
+
+function getCurrentPathname() {
+  return typeof window === "undefined" ? normalizedBasePath : window.location.pathname;
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,14 +50,22 @@ export function Navbar() {
   const [activeTab, setActiveTab] = useState("#top");
   const [initiatives, setInitiatives] = useState<Initiative[]>([]);
   const [initiativesOpen, setInitiativesOpen] = useState(false);
-  
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const [pathname, setPathname] = useState(getCurrentPathname);
+
+  const normalizedPathname = normalizePath(pathname);
+  const isHomePage = normalizedPathname === normalizedBasePath;
+  const isContactPage = normalizedPathname === normalizePath(contactHref);
 
   const allLinks = [
-    { href: isHomePage ? "#top" : "/#top", anchor: "top", label: "Overview" },
-    ...links.map(l => ({ ...l, href: isHomePage ? `#${l.anchor}` : l.href }))
+    { href: isHomePage ? "#top" : `${homeHref}#top`, anchor: "top", label: "Overview" },
+    ...links.map((l) => ({ ...l, href: isHomePage ? `#${l.anchor}` : `${homeHref}#${l.anchor}` })),
   ];
+
+  useEffect(() => {
+    const updatePathname = () => setPathname(window.location.pathname);
+    window.addEventListener("popstate", updatePathname);
+    return () => window.removeEventListener("popstate", updatePathname);
+  }, []);
 
   // Fetch initiatives from SOHUB API
   useEffect(() => {
@@ -125,13 +150,11 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="flex items-center gap-2"
             >
-              <img
-                src={solutionHubLogo}
-                alt="Solution Hub"
-                className="h-6"
-              />
+              <img src={solutionHubLogo} alt="Solution Hub" className="h-6" />
               <p className="text-[10px] md:text-xs text-gray-500 font-medium">
-                <span className="hidden md:inline">Solution Hub Technologies (SOHUB) Owned & Operated</span>
+                <span className="hidden md:inline">
+                  Solution Hub Technologies (SOHUB) Owned & Operated
+                </span>
                 <span className="md:hidden">SOHUB owned & operated</span>
               </p>
             </a>
@@ -139,15 +162,20 @@ export function Navbar() {
             {/* Initiatives dropdown */}
             <DropdownMenu modal={false} onOpenChange={setInitiativesOpen}>
               <DropdownMenuTrigger asChild>
-                <button
-                  className="text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0 text-gray-500 gap-1 flex items-center h-8 transition-colors cursor-pointer"
-                >
+                <button className="text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0 text-gray-500 gap-1 flex items-center h-8 transition-colors cursor-pointer">
                   <span className="hidden md:inline">Our Initiatives</span>
                   <span className="md:hidden text-[10px] font-medium">Our Initiatives</span>
-                  {initiativesOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                  {initiativesOpen ? (
+                    <ChevronUp className="w-3 h-3" />
+                  ) : (
+                    <ChevronDown className="w-3 h-3" />
+                  )}
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-[320px] p-3 z-[200] bg-white border border-gray-150 shadow-lg rounded-2xl">
+              <DropdownMenuContent
+                align="end"
+                className="w-[320px] p-3 z-[200] bg-white border border-gray-150 shadow-lg rounded-2xl"
+              >
                 <div className="grid grid-cols-3 gap-3">
                   {initiatives.map((initiative) => {
                     const logoUrl = initiative.logo.startsWith("http")
@@ -193,13 +221,24 @@ export function Navbar() {
       </div>
 
       {/* Floating Navbar */}
-      <nav className={`w-full flex justify-center transition-all duration-300 px-6 md:px-10 relative ${scrolled ? "mt-3" : "mt-6"}`}>
-        <div className={`flex w-full max-w-6xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100' : 'bg-transparent'}`}>
-          
+      <nav
+        className={`w-full flex justify-center transition-all duration-300 px-6 md:px-10 relative ${scrolled ? "mt-3" : "mt-6"}`}
+      >
+        <div
+          className={`flex w-full max-w-6xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${scrolled ? "bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100" : "bg-transparent"}`}
+        >
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2" onClick={() => isHomePage && setActiveTab("#top")}>
-            <img src={assetPath("/tolpar_logo.png")} alt="Tolpar" className="h-11 md:h-12 w-auto object-contain" />
-          </Link>
+          <a
+            href={homeHref}
+            className="flex items-center gap-2"
+            onClick={() => isHomePage && setActiveTab("#top")}
+          >
+            <img
+              src={assetPath("/tolpar_logo.png")}
+              alt="Tolpar"
+              className="h-11 md:h-12 w-auto object-contain"
+            />
+          </a>
 
           {/* Desktop Links - Center Pill */}
           <div className="hidden items-center rounded-full bg-gray-50/80 p-1 md:flex border border-gray-100">
@@ -225,13 +264,13 @@ export function Navbar() {
                 </a>
               );
             })}
-            <Link
-              to="/contact"
+            <a
+              href={contactHref}
               className={`relative px-5 py-2 text-[13px] font-medium transition-colors ${
-                location.pathname === "/contact" ? "text-emerald-700" : "text-gray-500 hover:text-gray-900"
+                isContactPage ? "text-emerald-700" : "text-gray-500 hover:text-gray-900"
               }`}
             >
-              {location.pathname === "/contact" && (
+              {isContactPage && (
                 <motion.div
                   layoutId="active-nav-pill"
                   className="absolute inset-0 rounded-full bg-emerald-100/50"
@@ -239,14 +278,14 @@ export function Navbar() {
                 />
               )}
               <span className="relative z-10">Contact</span>
-            </Link>
+            </a>
           </div>
 
           {/* Right Actions */}
           <div className="hidden items-center gap-4 md:flex">
             <div className="flex items-center ml-2">
               <a
-                href={isHomePage ? "#download" : "/#download"}
+                href={isHomePage ? "#download" : `${homeHref}#download`}
                 className="rounded-full bg-emerald-500 px-6 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(16,185,129,0.3)] transition-all hover:bg-emerald-600 hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5"
               >
                 Download App
@@ -278,16 +317,16 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
-              <Link
-                to="/contact"
+              <a
+                href={contactHref}
                 onClick={() => setOpen(false)}
-                className={`text-sm font-medium ${location.pathname === '/contact' ? 'text-emerald-600' : 'text-gray-900'}`}
+                className={`text-sm font-medium ${isContactPage ? "text-emerald-600" : "text-gray-900"}`}
               >
                 Contact
-              </Link>
+              </a>
               <div className="mt-4 flex flex-col gap-2 border-t border-gray-100 pt-4">
                 <a
-                  href={isHomePage ? "#download" : "/#download"}
+                  href={isHomePage ? "#download" : `${homeHref}#download`}
                   onClick={() => setOpen(false)}
                   className="rounded-full bg-emerald-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-md"
                 >

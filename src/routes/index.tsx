@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ComponentProps } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Plus,
@@ -19,9 +19,12 @@ import { Navbar } from "@/components/Navbar";
 import { OurInitiatives } from "@/components/OurInitiatives";
 import HeroWave from "@/components/ui/dynamic-wave-canvas-background";
 import { AppSimulator } from "@/components/AppSimulator";
-
+import { assetPath } from "@/lib/asset-path";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
+const omamaImages = [assetPath("/image.png"), assetPath("/image_copy_3.png")];
+
+type MotionDivProps = ComponentProps<typeof motion.div>;
 
 // ============ Reusable bits ============
 
@@ -103,7 +106,9 @@ function PayAnimation() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:14px_24px] opacity-20" />
       <div className="relative w-36 h-24 bg-white border border-slate-100 rounded-xl shadow-md p-3 flex flex-col justify-between z-10">
         <div className="flex items-center gap-2">
-          <span className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-[9px] select-none">📱</span>
+          <span className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-[9px] select-none">
+            📱
+          </span>
           <div>
             <div className="h-1.5 w-14 bg-slate-200 rounded" />
             <div className="h-1 w-8 bg-slate-100 rounded mt-1" />
@@ -121,7 +126,7 @@ function PayAnimation() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{
             opacity: [0, 0, 1, 1, 0],
-            scale: [0.95, 0.95, 1, 1, 0.95]
+            scale: [0.95, 0.95, 1, 1, 0.95],
           }}
           transition={{ duration: 3.5, repeat: Infinity, repeatDelay: 0.5 }}
         >
@@ -144,27 +149,27 @@ function AccessAnimation() {
   return (
     <div className="relative w-full h-40 bg-slate-50 flex items-center justify-center rounded-2xl overflow-hidden border border-slate-100 [perspective:800px]">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:14px_24px] opacity-20" />
-      
+
       <div className="flex items-center gap-6 z-10">
         {/* Smartphone Screen Mockup */}
         <div className="w-14 h-24 bg-slate-900 rounded-xl p-1 shadow-md border border-slate-800 flex flex-col justify-between relative overflow-hidden">
           <div className="w-6 h-1.5 bg-black rounded-full mx-auto" />
-          
+
           <div className="flex-1 bg-slate-950 rounded-lg mt-1 p-1 flex flex-col justify-between items-center relative overflow-hidden">
             {/* Pulsing access circle */}
-            <motion.div 
+            <motion.div
               className="w-8 h-8 rounded-full border border-purple-500/30 flex items-center justify-center relative mt-2"
               animate={{ scale: [1, 1.15, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 rounded-full bg-purple-500/10"
                 animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <span className="text-[10px] select-none">🔓</span>
             </motion.div>
-            
+
             {/* Status bar */}
             <div className="w-full flex flex-col items-center gap-1 mb-1">
               <div className="h-1 w-8 bg-purple-500/80 rounded" />
@@ -179,16 +184,16 @@ function AccessAnimation() {
             <motion.span
               key={i}
               className="w-1.5 h-1.5 rounded-full bg-purple-500"
-              animate={{ 
+              animate={{
                 scale: [1, 1.6, 1],
                 opacity: [0.3, 1, 0.3],
-                y: [0, -4, 0]
+                y: [0, -4, 0],
               }}
-              transition={{ 
-                duration: 1.5, 
-                repeat: Infinity, 
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
                 delay: i * 0.2,
-                ease: "easeInOut" 
+                ease: "easeInOut",
               }}
             />
           ))}
@@ -196,35 +201,37 @@ function AccessAnimation() {
 
         {/* Connected Smart Lock box */}
         <div className="w-16 h-16 bg-white border border-slate-200 rounded-2xl shadow-md p-2 flex flex-col items-center justify-center relative overflow-hidden">
-          <motion.div 
+          <motion.div
             className="w-9 h-9 rounded-full bg-purple-50 flex items-center justify-center border border-purple-100 text-purple-600 relative"
-            animate={{ 
+            animate={{
               backgroundColor: ["#FAF5FF", "#F3E8FF", "#FAF5FF"],
-              borderColor: ["#F3E8FF", "#E9D5FF", "#F3E8FF"]
+              borderColor: ["#F3E8FF", "#E9D5FF", "#F3E8FF"],
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
             <motion.div
-              animate={{ 
+              animate={{
                 rotate: [0, 360],
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 rounded-full border border-dashed border-purple-300/60 pointer-events-none"
             />
-            
+
             {/* Animated Lock Icon */}
-            <motion.span 
+            <motion.span
               className="text-[14px] select-none z-10"
-              animate={{ 
+              animate={{
                 scale: [1, 1.15, 1.15, 1],
-                y: [0, -1, 0, 0]
+                y: [0, -1, 0, 0],
               }}
               transition={{ duration: 3, repeat: Infinity }}
             >
               🔑
             </motion.span>
           </motion.div>
-          <span className="text-[7.5px] font-bold text-slate-500 mt-1 uppercase tracking-wider">Accessing</span>
+          <span className="text-[7.5px] font-bold text-slate-500 mt-1 uppercase tracking-wider">
+            Accessing
+          </span>
         </div>
       </div>
     </div>
@@ -250,9 +257,9 @@ function IPhoneMockup({
   innerClassName?: string;
   glowColor?: string;
   tiltedClass?: string;
-  initial?: any;
-  whileInView?: any;
-  transition?: any;
+  initial?: MotionDivProps["initial"];
+  whileInView?: MotionDivProps["whileInView"];
+  transition?: MotionDivProps["transition"];
 }) {
   return (
     <motion.div
@@ -270,7 +277,9 @@ function IPhoneMockup({
       <div className="absolute top-30 -right-[10px] w-[2px] h-12 bg-neutral-800 rounded-l pointer-events-none" />
 
       {/* Screen Container */}
-      <div className={`w-full rounded-[36px] overflow-hidden bg-white relative aspect-[9/19.5] ${innerClassName}`}>
+      <div
+        className={`w-full rounded-[36px] overflow-hidden bg-white relative aspect-[9/19.5] ${innerClassName}`}
+      >
         <img
           src={src}
           alt={alt}
@@ -302,7 +311,6 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
       className="relative z-10 flex min-h-[90vh] w-full flex-col items-center justify-start pt-32 pb-16 bg-transparent"
     >
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 text-center">
-        
         <FadeUp>
           <h1 className="text-[clamp(44px,6vw,72px)] font-extrabold leading-[1.1] tracking-tight text-slate-900">
             Everyday access, <br />
@@ -312,7 +320,8 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
 
         <FadeUp delay={0.1}>
           <p className="mx-auto mt-6 max-w-2xl text-[16px] leading-relaxed text-slate-500 md:text-[18px] font-semibold">
-            Tolpar connects people with smart machines, services, and connected experiences — through one simple Smart App.
+            Tolpar connects people with smart machines, services, and connected experiences —
+            through one simple Smart App.
           </p>
         </FadeUp>
 
@@ -325,12 +334,19 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2.5 sm:gap-3 rounded-[16px] bg-[#121212] border border-[#2a2a2a] text-white px-5 py-2.5 transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-emerald-500/30 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)]"
             >
-              <svg viewBox="0 0 24 24" className="w-5 h-5 shrink-0 fill-current transition-transform group-hover:scale-110 duration-300">
+              <svg
+                viewBox="0 0 24 24"
+                className="w-5 h-5 shrink-0 fill-current transition-transform group-hover:scale-110 duration-300"
+              >
                 <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z" />
               </svg>
               <div className="flex flex-col select-none text-left">
-                <span className="text-[7.5px] uppercase font-bold tracking-wider text-white/45 leading-none">Download on the</span>
-                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">App Store</span>
+                <span className="text-[7.5px] uppercase font-bold tracking-wider text-white/45 leading-none">
+                  Download on the
+                </span>
+                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">
+                  App Store
+                </span>
               </div>
             </a>
 
@@ -341,15 +357,31 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2.5 sm:gap-3 rounded-[16px] bg-[#121212] border border-[#2a2a2a] text-white px-5 py-2.5 transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-emerald-500/30 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)]"
             >
-              <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 shrink-0 transition-transform group-hover:scale-110 duration-300">
-                <path fill="#EA4335" d="M17.52 14.37L13.9 10.75L2.1 22.55C2.94 23.44 4.3 23.53 5.37 22.92L17.52 14.37Z" />
+              <svg
+                viewBox="0 0 24 24"
+                className="w-4.5 h-4.5 shrink-0 transition-transform group-hover:scale-110 duration-300"
+              >
+                <path
+                  fill="#EA4335"
+                  d="M17.52 14.37L13.9 10.75L2.1 22.55C2.94 23.44 4.3 23.53 5.37 22.92L17.52 14.37Z"
+                />
                 <path fill="#4285F4" d="M2.1 1.45V22.55L13.9 10.75L2.1 1.45Z" />
-                <path fill="#FBBC04" d="M17.52 14.37L22.62 11.45C23.69 10.84 23.69 9.16 22.62 8.55L17.52 5.63L13.9 10.75L17.52 14.37Z" />
-                <path fill="#34A853" d="M2.1 1.45C2.1 1.05 2.55 0.77 2.92 0.98L17.52 5.63L13.9 10.75L2.1 1.45Z" />
+                <path
+                  fill="#FBBC04"
+                  d="M17.52 14.37L22.62 11.45C23.69 10.84 23.69 9.16 22.62 8.55L17.52 5.63L13.9 10.75L17.52 14.37Z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M2.1 1.45C2.1 1.05 2.55 0.77 2.92 0.98L17.52 5.63L13.9 10.75L2.1 1.45Z"
+                />
               </svg>
               <div className="flex flex-col select-none text-left">
-                <span className="text-[7.5px] uppercase font-bold tracking-wider text-white/45 leading-none">GET IT ON</span>
-                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">Google Play</span>
+                <span className="text-[7.5px] uppercase font-bold tracking-wider text-white/45 leading-none">
+                  GET IT ON
+                </span>
+                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">
+                  Google Play
+                </span>
               </div>
             </a>
           </div>
@@ -366,7 +398,7 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
           <div className="relative flex items-end justify-center gap-4 sm:gap-6 md:gap-8 overflow-visible pt-10">
             {/* Left phone - tilted */}
             <IPhoneMockup
-              src="/image.png"
+              src={assetPath("/image.png")}
               alt="Tolpar App - Map View"
               className="w-[125px] sm:w-[165px] md:w-[205px]"
               tiltedClass="-rotate-6 -translate-y-2 hover:-rotate-3 hover:-translate-y-4"
@@ -378,7 +410,7 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
 
             {/* Center phone - main, larger */}
             <IPhoneMockup
-              src="/app_screen.png"
+              src={assetPath("/app_screen.png")}
               alt="Tolpar App - Home Screen"
               className="w-[150px] sm:w-[195px] md:w-[235px] z-10"
               tiltedClass="hover:-translate-y-2"
@@ -390,7 +422,7 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
 
             {/* Right phone - tilted */}
             <IPhoneMockup
-              src="/image_copy_3.png"
+              src={assetPath("/image_copy_3.png")}
               alt="Tolpar App - O-MAMA Point"
               className="w-[125px] sm:w-[165px] md:w-[205px]"
               tiltedClass="rotate-6 -translate-y-2 hover:rotate-3 hover:-translate-y-4"
@@ -414,28 +446,32 @@ function Hero({ onPartnerClick }: { onPartnerClick: () => void }) {
 function ConnectedServices() {
   const services = [
     {
-      image: "/sohub-omama-v2-Cb04jp3t.png",
+      image: assetPath("/sohub-omama-v2-Cb04jp3t.png"),
       title: "O-MAMA Point",
       desc: "Fresh food, hot meals, beverages, and retail items accessible through smart vending and QR codes.",
       accent: "bg-orange-50/50 border-orange-100/50",
+      imageClass: "scale-[1.24] group-hover:scale-[1.29]",
     },
     {
-      image: "/sohub-snacks-CIEARMGV.png",
+      image: assetPath("/sohub-snacks-CIEARMGV.png"),
       title: "Snacks Vending",
       desc: "On-demand snacks, cold drinks, and confectionery items available instantly at workplaces and campuses.",
       accent: "bg-blue-50/50 border-blue-100/50",
+      imageClass: "scale-[1.2] group-hover:scale-[1.25]",
     },
     {
-      image: "/sohub-locker-v1-Dsl9zKzH.png",
+      image: assetPath("/sohub-locker-v1-Dsl9zKzH.png"),
       title: "Smart Lockers",
       desc: "Secure item storage and package delivery compartments with simple mobile control.",
       accent: "bg-purple-50/50 border-purple-100/50",
+      imageClass: "scale-[1.18] group-hover:scale-[1.23]",
     },
     {
-      image: "/sohub-power-bank-v1-Bcca8uE6.png",
+      image: assetPath("/sohub-power-bank-v1-Bcca8uE6.png"),
       title: "Powerbank Stations",
       desc: "High-capacity on-demand rental powerbanks to keep your devices charged anywhere.",
       accent: "bg-emerald-50/50 border-emerald-100/50",
+      imageClass: "scale-[1.2] group-hover:scale-[1.25]",
     },
   ];
 
@@ -454,7 +490,8 @@ function ConnectedServices() {
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="mt-4 text-[16px] leading-relaxed text-slate-500 md:text-[18px] font-medium">
-              Tolpar brings together connected everyday services into one simple experience — designed for modern workplaces, campuses, commercial spaces, and public environments.
+              Tolpar brings together connected everyday services into one simple experience —
+              designed for modern workplaces, campuses, commercial spaces, and public environments.
             </p>
           </FadeUp>
         </div>
@@ -464,17 +501,21 @@ function ConnectedServices() {
             <FadeUp key={s.title} delay={0.2 + i * 0.08}>
               <div className="group h-full rounded-[28px] border border-slate-100/80 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.01)] hover:border-emerald-500/15 hover:-translate-y-1 transition-all duration-500 flex flex-col justify-between overflow-hidden">
                 {/* Machine Image Container (Standard padding, centered container) */}
-                <div className={`w-full aspect-[4/3] p-8 relative overflow-hidden flex items-center justify-center ${s.accent}`}>
+                <div
+                  className={`w-full aspect-[4/3] p-8 relative overflow-hidden flex items-center justify-center ${s.accent}`}
+                >
                   <img
                     src={s.image}
                     alt={s.title}
-                    className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    className={`absolute inset-0 h-full w-full object-contain transition-transform duration-500 ${s.imageClass}`}
                     loading="lazy"
                   />
                 </div>
                 <div className="p-6 pt-5">
                   <h3 className="text-[18px] font-bold text-slate-900 tracking-tight">{s.title}</h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-slate-500 font-medium">{s.desc}</p>
+                  <p className="mt-2 text-[14px] leading-relaxed text-slate-500 font-medium">
+                    {s.desc}
+                  </p>
                 </div>
               </div>
             </FadeUp>
@@ -488,12 +529,11 @@ function ConnectedServices() {
 // ============ 3️⃣ O-MAMA SECTION ============
 
 function OMamaSection() {
-  const images = ["/image.png", "/image_copy_3.png"];
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
+      setCurrentImage((prev) => (prev + 1) % omamaImages.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -513,7 +553,8 @@ function OMamaSection() {
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="mt-5 text-[16px] leading-relaxed text-slate-500 md:text-[18px] font-medium">
-              With Tolpar, users can access O-MAMA Point and connected smart vending services with item details, updated prices, and available offers shown before purchase.
+              With Tolpar, users can access O-MAMA Point and connected smart vending services with
+              item details, updated prices, and available offers shown before purchase.
             </p>
           </FadeUp>
         </div>
@@ -532,7 +573,7 @@ function OMamaSection() {
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentImage}
-                  src={images[currentImage]}
+                  src={omamaImages[currentImage]}
                   alt={`O-MAMA Point Screenshot ${currentImage + 1}`}
                   className="w-full h-full object-cover object-top absolute inset-0"
                   initial={{ opacity: 0, scale: 1.02 }}
@@ -593,7 +634,10 @@ function HowItWorks() {
     },
   ];
   return (
-    <section id="how" className="bg-slate-50/40 px-6 py-16 md:py-20 border-t border-slate-100 relative overflow-hidden">
+    <section
+      id="how"
+      className="bg-slate-50/40 px-6 py-16 md:py-20 border-t border-slate-100 relative overflow-hidden"
+    >
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
       <div className="mx-auto max-w-6xl text-center relative z-10">
@@ -614,7 +658,9 @@ function HowItWorks() {
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           {steps.map((s, i) => (
             <FadeUp key={s.n} delay={i * 0.1}>
-              <div className={`group bg-white p-8 rounded-[32px] border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.005)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between h-full min-h-[380px] ${s.glow}`}>
+              <div
+                className={`group bg-white p-8 rounded-[32px] border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.005)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between h-full min-h-[380px] ${s.glow}`}
+              >
                 <div>
                   {/* CSS/SVG Interactive Animation Wrapper */}
                   <div className="rounded-2xl overflow-hidden border border-slate-50 shadow-inner bg-slate-50/30">
@@ -626,7 +672,9 @@ function HowItWorks() {
                     <h3 className="text-[20px] font-extrabold text-slate-900 tracking-tight">
                       {s.title}
                     </h3>
-                    <span className={`text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider ${s.badge}`}>
+                    <span
+                      className={`text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider ${s.badge}`}
+                    >
                       Step {s.n}
                     </span>
                   </div>
@@ -659,18 +707,18 @@ function SmartEcosystem() {
               <div className="h-1 w-full bg-orange-400/80 rounded-sm" />
               <div className="h-1 w-2/3 bg-orange-300/60 rounded-sm" />
             </div>
-            
+
             {/* Can Dropping mechanism */}
-            <motion.div 
+            <motion.div
               className="w-2.5 h-3.5 bg-orange-500 rounded-sm absolute left-1.5 top-1/2"
-              animate={{ 
+              animate={{
                 y: [0, 16],
                 opacity: [0, 1, 1, 0],
-                rotate: [0, 0, 45, 45]
+                rotate: [0, 0, 45, 45],
               }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeIn" }}
             />
-            
+
             <div className="h-3 w-full bg-slate-150 border-t border-slate-200 rounded-b flex items-center justify-center">
               <div className="w-4 h-1.5 bg-slate-800 rounded-sm" />
             </div>
@@ -688,14 +736,14 @@ function SmartEcosystem() {
       animation: (
         <div className="relative w-full h-24 bg-purple-50/40 rounded-xl overflow-hidden border border-purple-100/50 flex items-center justify-center [perspective:400px]">
           <div className="absolute inset-0 bg-[radial-gradient(#e9d5ff_1px,transparent_1px)] bg-[size:10px_10px] opacity-20" />
-          
+
           <div className="relative w-16 h-12 bg-slate-100 border border-slate-200 rounded-lg p-1 flex gap-1 shadow-sm">
             {/* Locker left drawer */}
             <div className="flex-1 bg-white border border-slate-200 rounded flex items-center justify-center">
               <span className="text-[5px] text-slate-350">••</span>
             </div>
             {/* Locker right open-swing door */}
-            <motion.div 
+            <motion.div
               className="flex-1 bg-purple-50 border border-purple-200 rounded flex items-center justify-center relative [transform-origin:right_center]"
               animate={{ rotateY: [0, -75, -75, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
@@ -716,7 +764,7 @@ function SmartEcosystem() {
       animation: (
         <div className="relative w-full h-24 bg-emerald-50/40 rounded-xl overflow-hidden border border-emerald-100/50 flex items-center justify-center">
           <div className="absolute inset-0 bg-[radial-gradient(#a7f3d0_1px,transparent_1px)] bg-[size:10px_10px] opacity-20" />
-          
+
           <div className="relative flex items-center gap-3">
             {/* Powerbank charging dock */}
             <div className="w-7 h-12 bg-slate-100 border border-slate-200 rounded-lg flex flex-col justify-around p-1 shadow-inner">
@@ -724,9 +772,9 @@ function SmartEcosystem() {
               <div className="w-full h-1 bg-slate-250 rounded-sm" />
               <div className="w-full h-1 bg-slate-250 rounded-sm" />
             </div>
-            
+
             {/* Slides in and out powerbank */}
-            <motion.div 
+            <motion.div
               className="w-6 h-10 bg-white border border-slate-200 rounded-md p-1 shadow flex flex-col justify-between items-center"
               animate={{ x: [-8, 2, -8] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -735,7 +783,7 @@ function SmartEcosystem() {
                 <span className="w-0.5 h-1 bg-emerald-500 rounded-sm animate-pulse" />
                 <span className="w-0.5 h-1 bg-emerald-500 rounded-sm animate-pulse" />
               </div>
-              <motion.span 
+              <motion.span
                 className="text-[9px] select-none text-emerald-500"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
@@ -756,36 +804,60 @@ function SmartEcosystem() {
       animation: (
         <div className="relative w-full h-24 bg-blue-50/40 rounded-xl overflow-hidden border border-blue-100/50 flex items-center justify-center">
           <div className="absolute inset-0 bg-[radial-gradient(#bfdbfe_1px,transparent_1px)] bg-[size:10px_10px] opacity-20" />
-          
+
           <div className="relative w-20 h-16 flex items-center justify-center">
             {/* Networking nodes with pulses */}
             <svg className="w-full h-full" viewBox="0 0 100 80">
-              <line x1="20" y1="40" x2="50" y2="15" stroke="#93c5fd" strokeWidth="1" strokeDasharray="3,3" />
-              <line x1="20" y1="40" x2="50" y2="65" stroke="#93c5fd" strokeWidth="1" strokeDasharray="3,3" />
+              <line
+                x1="20"
+                y1="40"
+                x2="50"
+                y2="15"
+                stroke="#93c5fd"
+                strokeWidth="1"
+                strokeDasharray="3,3"
+              />
+              <line
+                x1="20"
+                y1="40"
+                x2="50"
+                y2="65"
+                stroke="#93c5fd"
+                strokeWidth="1"
+                strokeDasharray="3,3"
+              />
               <line x1="50" y1="15" x2="80" y2="40" stroke="#93c5fd" strokeWidth="1" />
               <line x1="50" y1="65" x2="80" y2="40" stroke="#93c5fd" strokeWidth="1" />
-              <line x1="20" y1="40" x2="80" y2="40" stroke="#93c5fd" strokeWidth="1" strokeDasharray="2,2" />
-              
+              <line
+                x1="20"
+                y1="40"
+                x2="80"
+                y2="40"
+                stroke="#93c5fd"
+                strokeWidth="1"
+                strokeDasharray="2,2"
+              />
+
               <circle cx="20" cy="40" r="4" fill="#3b82f6" />
               <circle cx="50" cy="15" r="4" fill="#60a5fa" />
               <circle cx="50" cy="65" r="4" fill="#60a5fa" />
-              
-              <motion.circle 
-                cx="80" 
-                cy="40" 
-                r="4" 
+
+              <motion.circle
+                cx="80"
+                cy="40"
+                r="4"
                 fill="#2563eb"
                 animate={{ r: [4, 6, 4] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              
+
               {/* Traveling light packet */}
-              <motion.circle 
-                r="2" 
+              <motion.circle
+                r="2"
                 fill="#3b82f6"
-                animate={{ 
+                animate={{
                   cx: [20, 50, 80, 50, 20],
-                  cy: [40, 15, 40, 65, 40]
+                  cy: [40, 15, 40, 65, 40],
                 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               />
@@ -803,7 +875,7 @@ function SmartEcosystem() {
       animation: (
         <div className="relative w-full h-24 bg-pink-50/40 rounded-xl overflow-hidden border border-pink-100/50 flex items-center justify-center">
           <div className="absolute inset-0 bg-[radial-gradient(#fbcfe8_1px,transparent_1px)] bg-[size:10px_10px] opacity-20" />
-          
+
           <div className="relative w-14 h-14 bg-white border border-slate-200 rounded-lg p-1.5 flex flex-col justify-between shadow-sm">
             <div className="flex justify-between">
               <span className="w-3.5 h-3.5 bg-slate-800 rounded-[2px]" />
@@ -818,9 +890,9 @@ function SmartEcosystem() {
                 <span className="bg-slate-850 rounded-[0.5px]" />
               </div>
             </div>
-            
+
             {/* Laser scanning sweep line */}
-            <motion.div 
+            <motion.div
               className="absolute left-0 right-0 h-0.5 bg-pink-500 shadow-[0_0_4px_#ec4899]"
               animate={{ top: ["8px", "48px", "8px"] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -854,7 +926,9 @@ function SmartEcosystem() {
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="mt-5 text-[16px] leading-relaxed text-slate-500 md:text-[18px] font-medium">
-              Tolpar is designed for offices, campuses, residential spaces, commercial environments, and modern facilities where everyday access should be smarter, simpler, and more reliable.
+              Tolpar is designed for offices, campuses, residential spaces, commercial environments,
+              and modern facilities where everyday access should be smarter, simpler, and more
+              reliable.
             </p>
           </FadeUp>
         </div>
@@ -862,10 +936,13 @@ function SmartEcosystem() {
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {features.map((f, i) => (
             <FadeUp key={f.label} delay={0.2 + i * 0.08}>
-              <div className={`group flex flex-col justify-between rounded-[28px] border bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.005)] transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.03)] hover:-translate-y-1.5 relative overflow-hidden h-full min-h-[300px] ${f.bg}`}>
-                
+              <div
+                className={`group flex flex-col justify-between rounded-[28px] border bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.005)] transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.03)] hover:-translate-y-1.5 relative overflow-hidden h-full min-h-[300px] ${f.bg}`}
+              >
                 {/* Top glow accent */}
-                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${f.accent}`} />
+                <div
+                  className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${f.accent}`}
+                />
 
                 <div className="flex flex-col gap-5">
                   {/* Custom interactive micro animation */}
@@ -902,16 +979,99 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
     company: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">(
+    "idle",
+  );
+  const [submitError, setSubmitError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const resetForm = () => {
+    setFormData({ name: "", email: "", company: "", message: "" });
+    setHoneypot("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", company: "", message: "" });
+
+    if (submitState === "submitting") return;
+
+    if (honeypot.trim()) {
+      setSubmitState("success");
+      setTimeout(() => {
+        setSubmitState("idle");
+        resetForm();
+        onClose();
+      }, 1800);
+      return;
+    }
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const company = formData.company.trim();
+    const message = formData.message.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (name.length < 3) {
+      setSubmitState("error");
+      setSubmitError("Please enter your full name.");
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      setSubmitState("error");
+      setSubmitError("Please enter a valid email address.");
+      return;
+    }
+
+    if (message.length < 10) {
+      setSubmitState("error");
+      setSubmitError("Please share a little more about your proposal.");
+      return;
+    }
+
+    setSubmitState("submitting");
+    setSubmitError("");
+
+    try {
+      const response = await fetch(assetPath("/server/partner-mailer.php"), {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          name,
+          email,
+          company,
+          message,
+        }),
+      });
+
+      const data = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        error?: string;
+      } | null;
+
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.error || "Mail sending failed");
+      }
+
+      setSubmitState("success");
+      setTimeout(() => {
+        setSubmitState("idle");
+        resetForm();
+        onClose();
+      }, 2500);
+    } catch (error) {
+      console.error("Partner form email error:", error);
+      setSubmitState("error");
+      setSubmitError("Message could not be sent. Please try again in a moment.");
+    }
+  };
+
+  const handleClose = () => {
+    if (submitState !== "submitting") {
+      setSubmitState("idle");
+      setSubmitError("");
       onClose();
-    }, 2500);
+    }
   };
 
   return (
@@ -926,7 +1086,7 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
           {/* Backdrop */}
           <motion.div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={onClose}
+            onClick={handleClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -941,13 +1101,14 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
           >
             {/* Close */}
             <button
-              onClick={onClose}
+              onClick={handleClose}
+              disabled={submitState === "submitting"}
               className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 hover:text-slate-700 transition-all"
             >
               <XIcon size={16} />
             </button>
 
-            {submitted ? (
+            {submitState === "success" ? (
               <motion.div
                 className="flex flex-col items-center justify-center py-16 text-center"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -956,8 +1117,12 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                 <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5">
                   <Check size={28} className="text-emerald-500" />
                 </div>
-                <h3 className="text-[22px] font-extrabold text-slate-900 tracking-tight">Thank you!</h3>
-                <p className="mt-2 text-[14px] text-slate-500 font-medium">We'll review your proposal and get back to you soon.</p>
+                <h3 className="text-[22px] font-extrabold text-slate-900 tracking-tight">
+                  Thank you!
+                </h3>
+                <p className="mt-2 text-[14px] text-slate-500 font-medium">
+                  Your proposal has been sent. We'll get back to you soon.
+                </p>
               </motion.div>
             ) : (
               <>
@@ -972,8 +1137,20 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <div className="hidden" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   <div>
-                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Full Name</label>
+                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       required
@@ -984,7 +1161,9 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                     />
                   </div>
                   <div>
-                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Email</label>
+                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">
+                      Email
+                    </label>
                     <input
                       type="email"
                       required
@@ -995,7 +1174,9 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                     />
                   </div>
                   <div>
-                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Company / Organization</label>
+                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">
+                      Company / Organization
+                    </label>
                     <input
                       type="text"
                       value={formData.company}
@@ -1005,7 +1186,9 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                     />
                   </div>
                   <div>
-                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Message</label>
+                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">
+                      Message
+                    </label>
                     <textarea
                       required
                       rows={4}
@@ -1015,11 +1198,17 @@ function PartnerModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                       placeholder="Tell us about your product or service..."
                     />
                   </div>
+                  {submitState === "error" && (
+                    <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-[13px] font-semibold text-red-600">
+                      {submitError}
+                    </div>
+                  )}
                   <button
                     type="submit"
+                    disabled={submitState === "submitting"}
                     className="mt-2 w-full rounded-xl bg-slate-900 py-3.5 text-[14px] font-bold text-white transition-all hover:bg-slate-800 hover:shadow-lg active:scale-[0.98]"
                   >
-                    Submit Proposal
+                    {submitState === "submitting" ? "Sending..." : "Submit Proposal"}
                   </button>
                 </form>
               </>
@@ -1046,7 +1235,9 @@ function PartnerCTA({ onPartnerClick }: { onPartnerClick: () => void }) {
         </FadeUp>
         <FadeUp delay={0.15}>
           <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-slate-500 md:text-[18px] font-medium">
-            Tolpar is gradually building a connected smart service ecosystem for Bangladesh. If your business, product, service, or connected experience aligns with the Tolpar ecosystem, we'd love to hear from you.
+            Tolpar is gradually building a connected smart service ecosystem for Bangladesh. If your
+            business, product, service, or connected experience aligns with the Tolpar ecosystem,
+            we'd love to hear from you.
           </p>
         </FadeUp>
         <FadeUp delay={0.2}>
@@ -1091,7 +1282,9 @@ function SOHUBEcosystem() {
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-relaxed text-slate-500 md:text-[18px] font-medium">
-              Tolpar is part of the SOHUB ecosystem — a growing collection of connected technologies, smart services, and digital experiences designed for real everyday use in Bangladesh.
+              Tolpar is part of the SOHUB ecosystem — a growing collection of connected
+              technologies, smart services, and digital experiences designed for real everyday use
+              in Bangladesh.
             </p>
           </FadeUp>
         </div>
@@ -1109,11 +1302,14 @@ function DownloadCTA() {
     <section id="download" className="relative overflow-hidden bg-black px-6 py-20 md:py-24">
       {/* Modern glowing background effect */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[100px]" />
-      
+
       <div className="mx-auto max-w-3xl text-center relative z-10">
         <FadeUp>
           <h2 className="mx-auto max-w-xl text-[clamp(28px,4vw,40px)] font-extrabold leading-[1.1] tracking-tight text-white">
-            Start with <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Tolpar.</span>
+            Start with{" "}
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+              Tolpar.
+            </span>
           </h2>
         </FadeUp>
         <FadeUp delay={0.1}>
@@ -1134,8 +1330,12 @@ function DownloadCTA() {
                 <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.1 1.51 12.06 1.004 1.45 2.19 3.078 3.766 3.02 1.524-.059 2.098-.98 3.937-.98 1.829 0 2.355.98 3.948.95 1.629-.029 2.675-1.479 3.67-2.93 1.153-1.68 1.629-3.3 1.66-3.379-.03-.02-3.178-1.22-3.218-4.839-.03-3.02 2.475-4.48 2.585-4.55-1.42-2.08-3.61-2.319-4.385-2.369-2.03-.16-3.96 1.24-4.96 1.24zm.82-3.49c.81-1 1.348-2.38 1.198-3.76-1.185.05-2.62.79-3.47 1.79-.75.87-1.4 2.27-1.22 3.63 1.319.1 2.68-.66 3.492-1.66z" />
               </svg>
               <div className="flex flex-col select-none text-left">
-                <span className="text-[7.5px] uppercase font-bold tracking-wider text-black/45 leading-none">Download on the</span>
-                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">App Store</span>
+                <span className="text-[7.5px] uppercase font-bold tracking-wider text-black/45 leading-none">
+                  Download on the
+                </span>
+                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">
+                  App Store
+                </span>
               </div>
             </a>
 
@@ -1146,15 +1346,31 @@ function DownloadCTA() {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2.5 sm:gap-3 rounded-[20px] bg-[#121212] border border-white/10 text-white px-6 py-3.5 transition-all duration-300 hover:scale-105 hover:bg-[#1A1A1C] hover:border-emerald-500/30 hover:shadow-[0_8px_20px_rgba(16,185,129,0.15)]"
             >
-              <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 shrink-0 transition-transform group-hover:scale-110 duration-300">
-                <path fill="#EA4335" d="M17.52 14.37L13.9 10.75L2.1 22.55C2.94 23.44 4.3 23.53 5.37 22.92L17.52 14.37Z" />
+              <svg
+                viewBox="0 0 24 24"
+                className="w-4.5 h-4.5 shrink-0 transition-transform group-hover:scale-110 duration-300"
+              >
+                <path
+                  fill="#EA4335"
+                  d="M17.52 14.37L13.9 10.75L2.1 22.55C2.94 23.44 4.3 23.53 5.37 22.92L17.52 14.37Z"
+                />
                 <path fill="#4285F4" d="M2.1 1.45V22.55L13.9 10.75L2.1 1.45Z" />
-                <path fill="#FBBC04" d="M17.52 14.37L22.62 11.45C23.69 10.84 23.69 9.16 22.62 8.55L17.52 5.63L13.9 10.75L17.52 14.37Z" />
-                <path fill="#34A853" d="M2.1 1.45C2.1 1.05 2.55 0.77 2.92 0.98L17.52 5.63L13.9 10.75L2.1 1.45Z" />
+                <path
+                  fill="#FBBC04"
+                  d="M17.52 14.37L22.62 11.45C23.69 10.84 23.69 9.16 22.62 8.55L17.52 5.63L13.9 10.75L17.52 14.37Z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M2.1 1.45C2.1 1.05 2.55 0.77 2.92 0.98L17.52 5.63L13.9 10.75L2.1 1.45Z"
+                />
               </svg>
               <div className="flex flex-col select-none text-left">
-                <span className="text-[7.5px] uppercase font-bold tracking-wider text-white/45 leading-none">GET IT ON</span>
-                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">Google Play</span>
+                <span className="text-[7.5px] uppercase font-bold tracking-wider text-white/45 leading-none">
+                  GET IT ON
+                </span>
+                <span className="text-[13px] font-bold font-sans leading-tight mt-0.5">
+                  Google Play
+                </span>
               </div>
             </a>
           </div>
@@ -1182,8 +1398,16 @@ export function Footer() {
   ];
 
   const socials = [
-    { icon: <Facebook size={16} />, href: "https://www.facebook.com/sikinahomama", label: "Facebook" },
-    { icon: <Instagram size={16} />, href: "https://www.instagram.com/tolpar.app", label: "Instagram" },
+    {
+      icon: <Facebook size={16} />,
+      href: "https://www.facebook.com/sikinahomama",
+      label: "Facebook",
+    },
+    {
+      icon: <Instagram size={16} />,
+      href: "https://www.instagram.com/tolpar.app",
+      label: "Instagram",
+    },
     { icon: <Youtube size={16} />, href: "https://www.youtube.com/@sohub_tech", label: "YouTube" },
   ];
 
@@ -1191,18 +1415,18 @@ export function Footer() {
     <footer className="bg-[#030303] px-6 py-20 border-t border-white/5 relative overflow-hidden">
       <div className="mx-auto max-w-6xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 pb-16">
-          
           {/* Column 1: Brand & Logo */}
           <div className="md:col-span-2 max-w-sm flex flex-col items-start gap-4">
             <div className="flex items-center gap-2">
               <img
-                src="/tolpar_logo.png"
+                src={assetPath("/tolpar_logo.png")}
                 alt="Tolpar Logo"
                 className="h-10 w-auto object-contain"
               />
             </div>
             <p className="text-[13px] leading-relaxed text-white/40 font-medium">
-              Tolpar connects you to smart everyday services and connected ecosystems — built and operated by Solution Hub Technologies.
+              Tolpar connects you to smart everyday services and connected ecosystems — built and
+              operated by Solution Hub Technologies.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 mt-2">
@@ -1260,7 +1484,6 @@ export function Footer() {
               ))}
             </ul>
           </div>
-
         </div>
 
         {/* Bottom Copyright Block */}
@@ -1281,7 +1504,6 @@ export function Footer() {
             A SOHUB INITIATIVE • CONNECTED BY DESIGN
           </div>
         </div>
-
       </div>
     </footer>
   );
@@ -1332,7 +1554,8 @@ function FAQ() {
             </FadeUp>
             <FadeUp delay={0.15}>
               <p className="mt-4 text-[14px] leading-relaxed text-slate-500 font-medium">
-                Can't find the answer you're looking for? Reach out to our customer support team or contact SOHUB directly.
+                Can't find the answer you're looking for? Reach out to our customer support team or
+                contact SOHUB directly.
               </p>
             </FadeUp>
           </div>
@@ -1354,10 +1577,14 @@ function FAQ() {
                       onClick={() => setOpenIndex(isOpen ? null : i)}
                       className="w-full flex items-center justify-between px-6 py-5 text-left"
                     >
-                      <span className={`text-[15px] font-bold tracking-tight pr-4 transition-colors duration-200 ${isOpen ? "text-emerald-700" : "text-slate-800"}`}>
+                      <span
+                        className={`text-[15px] font-bold tracking-tight pr-4 transition-colors duration-200 ${isOpen ? "text-emerald-700" : "text-slate-800"}`}
+                      >
                         {faq.q}
                       </span>
-                      <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen ? "bg-emerald-50 text-emerald-600 rotate-180" : "bg-slate-100 text-slate-500"}`}>
+                      <div
+                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen ? "bg-emerald-50 text-emerald-600 rotate-180" : "bg-slate-100 text-slate-500"}`}
+                      >
                         {isOpen ? <Minus size={14} /> : <Plus size={14} />}
                       </div>
                     </button>
