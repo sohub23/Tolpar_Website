@@ -85,11 +85,6 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (!isHomePage) {
-      setActiveTab("");
-      return;
-    }
-
     let ticking = false;
 
     const handleScroll = () => {
@@ -99,33 +94,40 @@ export function Navbar() {
         // Scrolled state for navbar bg
         setScrolled(window.scrollY > 20);
 
-        // Scroll spy logic
-        const sectionIds = ["#top", "#features", "#how", "#faq"];
-        let activeSection = "#top";
-        const scrollPosition = window.scrollY + 250;
-        let maxPassedTop = -1;
+        // Scroll spy logic only runs on home page
+        if (isHomePage) {
+          const sectionIds = ["#top", "#features", "#how", "#faq"];
+          let activeSection = "#top";
+          const scrollPosition = window.scrollY + 250;
+          let maxPassedTop = -1;
 
-        for (const id of sectionIds) {
-          const el = document.getElementById(id.replace("#", ""));
-          if (el) {
-            const top = el.getBoundingClientRect().top + window.scrollY;
-            if (scrollPosition >= top && top > maxPassedTop) {
-              maxPassedTop = top;
-              activeSection = id;
+          for (const id of sectionIds) {
+            const el = document.getElementById(id.replace("#", ""));
+            if (el) {
+              const top = el.getBoundingClientRect().top + window.scrollY;
+              if (scrollPosition >= top && top > maxPassedTop) {
+                maxPassedTop = top;
+                activeSection = id;
+              }
             }
           }
-        }
 
-        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
-          activeSection = "#faq";
-        }
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+            activeSection = "#faq";
+          }
 
-        setActiveTab(activeSection);
+          setActiveTab(activeSection);
+        } else {
+          setActiveTab("");
+        }
+        
         ticking = false;
       });
     };
 
+    // Initial check
     handleScroll();
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
@@ -141,7 +143,7 @@ export function Navbar() {
           scrolled ? "max-h-0 opacity-0 border-none" : "max-h-20 opacity-100"
         }`}
       >
-        <div className="mx-auto max-w-6xl px-6 md:px-10 py-1">
+        <div className="mx-auto max-w-6xl px-4 md:px-10 py-1">
           <div className="flex items-center justify-between">
             {/* SOHUB branding link */}
             <a
@@ -222,10 +224,10 @@ export function Navbar() {
 
       {/* Floating Navbar */}
       <nav
-        className={`w-full flex justify-center transition-all duration-300 px-6 md:px-10 relative ${scrolled ? "mt-3" : "mt-6"}`}
+        className={`w-full flex justify-center transition-all duration-300 px-4 md:px-10 relative ${scrolled ? "mt-3" : "mt-6"}`}
       >
         <div
-          className={`flex w-full max-w-6xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${scrolled ? "bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100" : "bg-transparent"}`}
+          className={`flex w-full max-w-6xl items-center justify-between rounded-full px-4 md:px-6 py-2.5 md:py-3 transition-all duration-500 ${scrolled ? "bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100" : "bg-transparent"}`}
         >
           {/* Logo */}
           <a
@@ -236,7 +238,7 @@ export function Navbar() {
             <img
               src={assetPath("/tolpar_logo.png")}
               alt="Tolpar"
-              className="h-11 md:h-12 w-auto object-contain"
+              className="h-10 md:h-12 w-auto object-contain"
             />
           </a>
 
@@ -305,7 +307,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="absolute left-6 right-6 top-full mt-2 rounded-3xl border border-gray-100 bg-white p-6 shadow-xl backdrop-blur-2xl md:hidden">
+          <div className="absolute left-4 right-4 md:left-6 md:right-6 top-full mt-2 rounded-3xl border border-gray-100 bg-white p-5 shadow-xl backdrop-blur-2xl md:hidden">
             <div className="flex flex-col gap-4">
               {allLinks.map((l) => (
                 <a

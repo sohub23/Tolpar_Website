@@ -89,13 +89,13 @@ export function AppSimulator() {
   const Icon = info.icon;
 
   return (
-    <section id="simulator" className="relative bg-slate-50 px-6 py-20 md:py-32 overflow-hidden">
+    <section id="simulator" className="relative bg-slate-50 px-6 py-12 md:py-32 overflow-hidden">
       {/* Decorative Orbs */}
       <div className="pointer-events-none absolute -left-40 top-1/4 h-[350px] w-[350px] rounded-full bg-emerald-500/10 blur-[80px]" />
       <div className="pointer-events-none absolute -right-40 bottom-1/4 h-[350px] w-[350px] rounded-full bg-[#FB8A09]/10 blur-[80px]" />
 
       <div className="mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <span className="inline-block rounded-full border border-emerald-100 bg-emerald-50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-600">
             Interactive Experience
           </span>
@@ -107,29 +107,29 @@ export function AppSimulator() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-16 items-center justify-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-center">
           
           {/* Modern Instruction Panel */}
-          <div className="w-full lg:w-[400px] flex flex-col gap-6">
-            <div className="bg-white/60 backdrop-blur-xl rounded-3xl border border-white/80 p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_40px_rgba(16,185,129,0.08)] transition-all duration-500">
+          <div className="w-full max-w-md lg:max-w-none lg:w-[400px] flex flex-col gap-5 md:gap-6">
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/80 p-6 md:p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_40px_rgba(16,185,129,0.08)] transition-all duration-500">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-bl-full -z-10" />
               
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
-                  <Icon size={24} />
+                <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
+                  <Icon size={20} className="md:w-6 md:h-6" />
                 </div>
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-600">
                     Step {info.step} of 4
                   </div>
-                  <h3 className="text-2xl font-black text-slate-800 tracking-tight leading-none mt-1">
+                  <h3 className="text-xl md:text-2xl font-black text-slate-800 tracking-tight leading-none mt-1">
                     {info.title}
                   </h3>
                 </div>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
-                <p className="text-[15px] leading-relaxed text-slate-600 font-medium">
+                <p className="text-[14px] md:text-[15px] leading-relaxed text-slate-600 font-medium">
                   {info.desc}
                 </p>
               </div>
@@ -163,16 +163,20 @@ export function AppSimulator() {
             </button>
           </div>
 
-          {/* Ultra-Realistic Phone Frame */}
-          <div className="relative rounded-[42px] bg-[#1a1a1a] border-[5px] border-[#202020] p-[3px] shadow-[0_35px_60px_rgba(0,0,0,0.4),inset_0_0_2px_rgba(255,255,255,0.2)] max-w-[260px] w-full aspect-[9/19.5] select-none ring-1 ring-black/50">
+          {/* Ultra-Realistic Phone Frame (Matching O-MAMA Mockup) */}
+          <div className="relative w-[250px] md:w-[260px] rounded-[44px] bg-slate-950 border-[8px] border-neutral-900 shadow-[0_20px_45px_-8px_rgba(0,0,0,0.35),0_0_30px_rgba(16,185,129,0.15)] transition-all duration-300 overflow-visible aspect-[9/19.5]">
              
-             {/* Dynamic Island / Notch */}
-             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[75px] h-[22px] bg-black rounded-full z-50 flex items-center justify-end px-2.5 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.05)]">
-               <div className="h-2 w-2 rounded-full bg-[#050505] border border-[#1a1a1a]" />
-             </div>
+             {/* Side Buttons (iPhone realism) */}
+             <div className="hidden md:block absolute top-20 -left-[10px] w-[2px] h-6 bg-neutral-800 rounded-r pointer-events-none" />
+             <div className="hidden md:block absolute top-32 -left-[10px] w-[2px] h-9 bg-neutral-800 rounded-r pointer-events-none" />
+             <div className="hidden md:block absolute top-44 -left-[10px] w-[2px] h-9 bg-neutral-800 rounded-r pointer-events-none" />
+             <div className="hidden md:block absolute top-32 -right-[10px] w-[2px] h-12 bg-neutral-800 rounded-l pointer-events-none" />
 
-             {/* Phone Screen */}
-             <div className="relative w-full h-full bg-black rounded-[34px] overflow-hidden border-[0.5px] border-white/10">
+             {/* Screen Container */}
+             <div 
+               className="relative w-full h-full bg-white rounded-[36px] overflow-hidden"
+               style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+             >
                 <AnimatePresence mode="wait">
                   {currentScreen === "SCANNING" ? (
                     <motion.div 
@@ -198,13 +202,14 @@ export function AppSimulator() {
                   ) : (
                     <motion.div
                       key={currentScreen}
-                      initial={{ opacity: 0, scale: 0.98 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute inset-0"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="absolute inset-0 flex flex-col"
+                      style={{ willChange: "transform, opacity" }}
                     >
-                      <img src={getScreenImage()} alt={currentScreen} className="w-full h-full object-cover" draggable={false} />
+                      <img src={getScreenImage()} alt={currentScreen} className="absolute inset-0 w-full h-full object-cover object-top rounded-[36px]" draggable={false} />
                       
                       {/* Hotspots */}
                       {currentScreen === "HOME" && (
@@ -249,6 +254,7 @@ export function AppSimulator() {
                             className="absolute top-[61%] left-[26%] w-[12%] h-[5%] cursor-pointer z-20"
                           />
                           
+
                           {/* Asterisks Area Hotspot */}
                           <div 
                             onClick={() => setShowBalance(!showBalance)}
@@ -311,6 +317,17 @@ export function AppSimulator() {
                   className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-[35%] h-1 bg-white/80 rounded-full cursor-pointer z-50 hover:bg-white transition-colors shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
                 />
              </div>
+             
+             {/* Dynamic Island (Matching O-MAMA exactly) */}
+             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[52px] h-3.5 bg-black rounded-full z-50 flex items-center justify-end px-1.5 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.15)] pointer-events-none">
+               <div className="w-1 h-1 rounded-full bg-emerald-950/80 mr-0.5 flex items-center justify-center">
+                 <div className="w-0.5 h-0.5 rounded-full bg-emerald-400" />
+               </div>
+               <div className="w-0.5 h-0.5 rounded-full bg-blue-900/60" />
+             </div>
+
+             {/* Premium Screen Glow */}
+             <div className="absolute -inset-[1px] rounded-[36px] border border-white/10 pointer-events-none z-10" />
           </div>
         </div>
       </div>
